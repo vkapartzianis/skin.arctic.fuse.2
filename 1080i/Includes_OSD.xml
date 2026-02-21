@@ -404,6 +404,17 @@
                 <width>$PARAM[width]</width>
                 <bottom>220</bottom>
                 <height>760</height>
+                <!-- Dead zone: absorbs hover on non-interactive areas (title bar, background)
+                     so the popup's catch-all button does not close it. Must be the first
+                     child (lowest reverse-iteration priority); panel and scrollbar
+                     (defined later) take priority when the pointer is over them. -->
+                <control type="button">
+                    <texturenofocus />
+                    <texturefocus />
+                    <font />
+                    <width>100%</width>
+                    <height>100%</height>
+                </control>
                 <control type="group">
                     <animation effect="slide" start="0" end="0,80" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,6)">Conditional</animation>
                     <animation effect="slide" start="0" end="0,160" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,5)">Conditional</animation>
@@ -1163,7 +1174,6 @@
             <font />
             <label />
             <onfocus>Close</onfocus>
-            <onfocus>SetFocus(600$PARAM[id])</onfocus>
         </control>
     </include>
 

@@ -5,6 +5,16 @@
 
     <controls>
 
+        <!-- Close popup when pointer moves to upper screen area (not in OSD button strip). -->
+        <control type="button" id="6090">
+            <texturenofocus />
+            <texturefocus />
+            <font />
+            <width>100%</width>
+            <bottom>280</bottom>
+            <onfocus>Close</onfocus>
+        </control>
+
         <control type="group">
             <include>OSD_HideControls</include>
             <left>view_pad</left>
@@ -15,6 +25,17 @@
 
             <!-- Settings -->
             <control type="group">
+                <!-- Dead zone: absorbs hover on non-interactive areas (title bar, background)
+                     so the popup's catch-all button does not close it. Must be the first
+                     child (lowest reverse-iteration priority); the settings list and
+                     playback button (defined later) take priority when the pointer is over them. -->
+                <control type="button">
+                    <texturenofocus />
+                    <texturefocus />
+                    <font />
+                    <width>100%</width>
+                    <height>100%</height>
+                </control>
                 <include content="OSD_Dialog_Background_Blur">
                     <param name="diffuse">diffuse/dialog_w520_h480.png</param>
                 </include>

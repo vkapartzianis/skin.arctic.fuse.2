@@ -5,6 +5,16 @@
 
     <controls>
 
+        <!-- Close popup when pointer moves to upper screen area (not in OSD button strip). -->
+        <control type="button" id="6090">
+            <texturenofocus />
+            <texturefocus />
+            <font />
+            <width>100%</width>
+            <bottom>280</bottom>
+            <onfocus>Close</onfocus>
+        </control>
+
         <control type="group">
             <include>OSD_HideControls</include>
 
