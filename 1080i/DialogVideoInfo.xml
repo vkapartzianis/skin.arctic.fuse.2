@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog">
     <include content="Object_DefaultControl">
-        <param name="always">true</param>
+        <param name="always">false</param>
         <param name="defaultcontrol">8000</param>
     </include>
 
@@ -16,6 +16,7 @@
     <onload condition="Skin.HasSetting(Trailers.EnableAutoPlayback.Info) + !String.IsEmpty(ListItem.Trailer) + !Player.HasMedia">ActivateWindow(1123)</onload>
 
     <onload>SetProperty(BaseID,$INFO[ListItem.Label]$INFO[ListItem.FolderPath])</onload>
+    <onload condition="!String.IsEqual(ListItem.Property(tmdb_type),person)">SetFocus(4001)</onload>
 
     <controls>
 
@@ -24,7 +25,6 @@
             <texturefocus />
             <font />
             <ondown>5000</ondown>
-            <onfocus condition="!String.IsEqual(ListItem.Property(tmdb_type),person)">SetFocus(4001)</onfocus>
             <onright condition="!String.IsEqual(ListItem.Property(tmdb_type),person)">4001</onright>
             <onleft condition="!String.IsEqual(ListItem.Property(tmdb_type),person)">4001</onleft>
             <onleft condition="String.IsEqual(ListItem.Property(tmdb_type),person)">SetFocus(61)</onleft>
@@ -72,7 +72,7 @@
             <control type="grouplist" id="5000">
                 <include>DialogInfo_Widget_Grouplist</include>
 
-                <onup>8000</onup>
+                <onup>9000</onup>
                 <onback>8000</onback>
                 <ondown>330</ondown>
 
