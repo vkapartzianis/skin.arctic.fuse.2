@@ -519,6 +519,7 @@
                 <param name="textcolor">panel_fg_90</param>
                 <param name="listitem_videoresolution">VideoPlayer.VideoResolution</param>
                 <param name="listitem_audiochannels">VideoPlayer.AudioChannels</param>
+                <param name="listitem_audiocodec">VideoPlayer.AudioCodec</param>
                 <param name="listitem_hdrtype">VideoPlayer.HdrType</param>
                 <param name="visible">$PARAM[visible]</param>
             </include>
