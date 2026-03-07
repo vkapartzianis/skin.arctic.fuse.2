@@ -868,7 +868,7 @@
                 <centertop>50%</centertop>
                 <height>80</height>
                 <include content="Object_InfoCircle">
-                    <param name="name">[UPPERCASE]$INFO[VideoPlayer.VideoResolution]$INFO[VideoPlayer.VideoCodec, • ,]$INFO[VideoPlayer.VideoAspect, • ,:1]$INFO[VideoPlayer.AudioCodec, • ,]$VAR[Label_VideoPlayer_AudioChannels, • ,][/UPPERCASE]</param>
+                    <param name="name">[UPPERCASE]$INFO[VideoPlayer.VideoResolution]$INFO[VideoPlayer.VideoCodec, • ,]$INFO[VideoPlayer.VideoAspect, • ,:1]$VAR[Label_VideoPlayer_AudioCodec, • ,]$VAR[Label_VideoPlayer_AudioChannels, • ,][/UPPERCASE]</param>
                     <param name="role">$INFO[VideoPlayer.VideoVersionName]</param>
                     <param name="icon">special://skin/extras/icons/photo-film.png</param>
                     <param name="fallback_role">$LOCALIZE[31207]</param>
