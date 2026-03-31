@@ -102,10 +102,8 @@
                             <param name="h">view_poster_item_h</param>
                         </include>
 
-                        <ondown>SetFocus($PARAM[id]3,0,absolute)</ondown>
-                        <ondown>$PARAM[id]2</ondown>
-
-                        <include content="Action_View_Movement_OnUp">
+                        <onup>SetFocus($PARAM[id]2,0,absolute)</onup>
+                        <include content="Action_View_Movement_OnDown">
                             <param name="id">$PARAM[id]3</param>
                         </include>
 
@@ -146,7 +144,10 @@
         <onright>$PARAM[id]2</onright>
         <left>480</left>
         <top>482</top>
-        <onup>$PARAM[id]3</onup>
+        <include content="Action_View_Movement_OnUp">
+            <param name="id">$PARAM[id]2</param>
+        </include>
+        <ondown>SetFocus($PARAM[id]3,0,absolute)</ondown>
 
         <!-- <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PARAM[id]3)</onfocus> -->
         <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
