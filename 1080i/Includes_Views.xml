@@ -50,15 +50,17 @@
             <onright>SetFocus(50)</onright>
             <onright>Action(NextLetter)</onright>
             <onright>SetFocus(610)</onright>
-            <onfocus condition="!$EXP[Exp_IsAlphabetStrip] + !Integer.IsEqual(Container.NumPages,1)">SetFocus(60)</onfocus>
-            <onfocus condition="Integer.IsEqual(Container.NumPages,1) + String.IsEmpty(Control.GetLabel(19).index(1))">SetFocus(8000)</onfocus>
-            <onfocus condition="Integer.IsEqual(Container.NumPages,1) + !String.IsEmpty(Control.GetLabel(19).index(1))">SetFocus(600,$VAR[Action_View_Filter_Focus],absolute)</onfocus>
+            <onfocus condition="$EXP[Exp_View_Scrollbar_Horz_Available]">SetProperty(View.BottomPanelMode,scroll)</onfocus>
+            <onfocus condition="$EXP[Exp_View_Scrollbar_Horz_Available]">SetFocus(60)</onfocus>
+            <onfocus condition="!$EXP[Exp_View_Scrollbar_Horz_Available]">SetProperty(View.BottomPanelMode,filter)</onfocus>
+            <onfocus condition="!$EXP[Exp_View_Scrollbar_Horz_Available]">SetFocus(600,$VAR[Action_View_Filter_Focus],absolute)</onfocus>
         </include>
 
         <include content="Object_Hidden_Button">
             <param name="id">611</param>
             <onleft>50</onleft>
-            <onright>SetFocus(8000)</onright>
+            <onright condition="!Window.IsVisible(MyPlaylist.xml)">SetFocus(8001)</onright>
+            <onright condition="Window.IsVisible(MyPlaylist.xml)">SetFocus(20)</onright>
             <onback>50</onback>
             <onup>SetFocus(50)</onup>
             <onup>Action(PrevLetter)</onup>
@@ -69,8 +71,10 @@
             <onfocus condition="!$EXP[Exp_IsAlphabetStrip] + !Integer.IsEqual(Container.NumPages,1) + $EXP[Exp_View_Scrollbar_Mini_V]">SetFocus(64)</onfocus>
             <onfocus condition="!$EXP[Exp_IsAlphabetStrip] + !Integer.IsEqual(Container.NumPages,1) + $EXP[Exp_View_Scrollbar_Midi_V]">SetFocus(65)</onfocus>
             <onfocus condition="!$EXP[Exp_IsAlphabetStrip] + !Integer.IsEqual(Container.NumPages,1) + $EXP[Exp_View_Scrollbar_Maxi_V]">SetFocus(66)</onfocus>
-            <onfocus condition="Integer.IsEqual(Container.NumPages,1) + String.IsEmpty(Control.GetLabel(19).index(1))">SetFocus(8000)</onfocus>
-            <onfocus condition="Integer.IsEqual(Container.NumPages,1) + !String.IsEmpty(Control.GetLabel(19).index(1))">SetFocus(600,$VAR[Action_View_Filter_Focus],absolute)</onfocus>
+            <onfocus condition="!$EXP[Exp_View_Scrollbar_Mini_V] + !$EXP[Exp_View_Scrollbar_Midi_V] + !$EXP[Exp_View_Scrollbar_Maxi_V] + $EXP[Exp_View_Scrollbar_Horz_Available]">SetProperty(View.BottomPanelMode,scroll)</onfocus>
+            <onfocus condition="!$EXP[Exp_View_Scrollbar_Mini_V] + !$EXP[Exp_View_Scrollbar_Midi_V] + !$EXP[Exp_View_Scrollbar_Maxi_V] + $EXP[Exp_View_Scrollbar_Horz_Available]">SetFocus(60)</onfocus>
+            <onfocus condition="!$EXP[Exp_View_Scrollbar_Mini_V] + !$EXP[Exp_View_Scrollbar_Midi_V] + !$EXP[Exp_View_Scrollbar_Maxi_V] + !$EXP[Exp_View_Scrollbar_Horz_Available]">SetProperty(View.BottomPanelMode,filter)</onfocus>
+            <onfocus condition="!$EXP[Exp_View_Scrollbar_Mini_V] + !$EXP[Exp_View_Scrollbar_Midi_V] + !$EXP[Exp_View_Scrollbar_Maxi_V] + !$EXP[Exp_View_Scrollbar_Horz_Available]">SetFocus(600,$VAR[Action_View_Filter_Focus],absolute)</onfocus>
         </include>
     </include>
 
@@ -283,8 +287,56 @@
                     <include>View_Scrollbar_Count</include>
                     <include>View_Scrollbar_Strip</include>
                     <include>View_Alphabet_Filter</include>
+                    <include>View_BottomPanel_Toggle</include>
                     <include>View_Hint_Text</include>
                 </control>
+            </control>
+        </control>
+    </include>
+
+    <include name="View_BottomPanel_Toggle">
+        <control type="group">
+            <width>80</width>
+            <height>80</height>
+            <right>10</right>
+            <centertop>50%</centertop>
+
+            <control type="image">
+                <width>80</width>
+                <height>80</height>
+                <centerleft>50%</centerleft>
+                <centertop>50%</centertop>
+                <texture colordiffuse="main_fg_30">special://skin/extras/icons/bars.png</texture>
+                <visible>!Control.HasFocus(8090)</visible>
+            </control>
+
+            <control type="image">
+                <width>80</width>
+                <height>80</height>
+                <centerleft>50%</centerleft>
+                <centertop>50%</centertop>
+                <texture colordiffuse="main_fg_90">special://skin/extras/icons/bars.png</texture>
+                <visible>Control.HasFocus(8090)</visible>
+            </control>
+
+            <control type="button" id="8090">
+                <width>80</width>
+                <height>80</height>
+                <texturenofocus />
+                <texturefocus />
+                <onup>50</onup>
+                <onback>50</onback>
+                <onleft>50</onleft>
+                <onclick condition="String.IsEqual(Window.Property(View.BottomPanelMode),scroll)">SetProperty(View.BottomPanelMode,filter)</onclick>
+                <onclick condition="String.IsEqual(Window.Property(View.BottomPanelMode),scroll)">SetFocus(600,$VAR[Action_View_Filter_Focus],absolute)</onclick>
+                <onclick condition="String.IsEqual(Window.Property(View.BottomPanelMode),filter)">SetProperty(View.BottomPanelMode,sort)</onclick>
+                <onclick condition="String.IsEqual(Window.Property(View.BottomPanelMode),filter) + !Window.IsVisible(MyPlaylist.xml)">SetFocus(8001)</onclick>
+                <onclick condition="String.IsEqual(Window.Property(View.BottomPanelMode),filter) + Window.IsVisible(MyPlaylist.xml)">SetFocus(20)</onclick>
+                <onclick condition="String.IsEqual(Window.Property(View.BottomPanelMode),sort)">ClearProperty(View.BottomPanelMode)</onclick>
+                <onclick condition="String.IsEmpty(Window.Property(View.BottomPanelMode)) + $EXP[Exp_View_Scrollbar_Horz_Available]">SetProperty(View.BottomPanelMode,scroll)</onclick>
+                <onclick condition="String.IsEmpty(Window.Property(View.BottomPanelMode)) + $EXP[Exp_View_Scrollbar_Horz_Available]">SetFocus(60)</onclick>
+                <onclick condition="String.IsEmpty(Window.Property(View.BottomPanelMode)) + !$EXP[Exp_View_Scrollbar_Horz_Available]">SetProperty(View.BottomPanelMode,filter)</onclick>
+                <onclick condition="String.IsEmpty(Window.Property(View.BottomPanelMode)) + !$EXP[Exp_View_Scrollbar_Horz_Available]">SetFocus(600,$VAR[Action_View_Filter_Focus],absolute)</onclick>
             </control>
         </control>
     </include>
@@ -300,14 +352,14 @@
                 <centertop>50%</centertop>
                 <align>center</align>
                 <right>0</right>
+                <onup>ClearProperty(View.BottomPanelMode)</onup>
                 <onup>50</onup>
+                <onback>ClearProperty(View.BottomPanelMode)</onback>
                 <onback>50</onback>
+                <ondown>ClearProperty(View.BottomPanelMode)</ondown>
                 <ondown>SetProperty(List.ViewContainer,8000)</ondown>
                 <ondown>SetFocus(330)</ondown>
-
-                <hitrect x="0" y="0" w="0" h="0" />
-
-                <visible allowhiddenfocus="true">$EXP[Exp_View_SortModeButtons_HasFocus]</visible>
+                <visible>$EXP[Exp_View_SortModeButtons_HasFocus] | String.IsEqual(Window.Property(View.BottomPanelMode),sort)</visible>
 
                 <!-- View -->
                 <include content="DialogInfo_Button" condition="!Window.IsVisible(MyPlaylist.xml)">
@@ -324,7 +376,6 @@
                     <param name="visible">true</param>
                     <param name="include_hintlabel">$PARAM[include_hintlabel]</param>
                     <param name="include_customwidth">$PARAM[include_customwidth]</param>
-                    <hitrect x="0" y="0" w="0" h="0" />
                     <onclick>Runscript(script.skinvariables,action=buildviews,contentid=$VAR[Items_ViewMode_Switch],pluginname=$INFO[Container.PluginName])</onclick>
                 </include>
 
@@ -343,7 +394,6 @@
                     <param name="visible">true</param>
                     <param name="include_hintlabel">$PARAM[include_hintlabel]</param>
                     <param name="include_customwidth">$PARAM[include_customwidth]</param>
-                    <hitrect x="0" y="0" w="0" h="0" />
                     <onclick>SetProperty(DialogSelectType,Menu,Home)</onclick>
                     <onclick condition="![String.IsEqual(Container.FolderName,Skin Variables) + !String.IsEmpty(Window.Property(MediaFilter.BaseDir.Name))]">SendClick(3)</onclick>
                     <onclick condition="String.IsEqual(Container.FolderName,Skin Variables) + !String.IsEmpty(Window.Property(MediaFilter.BaseDir.Name))">RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[581],separator=||,list=title||genre||year||rating||playcount||director||originaltitle||lastplayed||writer||studio||mpaa||country||premiered||top250||votes,"executebuiltin=SetProperty(MediaFilter.SortBy,{v})||route=run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-mediafilter.json&amp;use_rules=True")</onclick>
@@ -364,7 +414,6 @@
                     <param name="visible">true</param>
                     <param name="include_hintlabel">$PARAM[include_hintlabel]</param>
                     <param name="include_customwidth">$PARAM[include_customwidth]</param>
-                    <hitrect x="0" y="0" w="0" h="0" />
                     <onclick>SetProperty(DialogSelectType,Menu,Home)</onclick>
                     <onclick condition="![String.IsEqual(Container.FolderName,Skin Variables) + !String.IsEmpty(Window.Property(MediaFilter.BaseDir.Name))]">SendClick(4)</onclick>
 
@@ -389,7 +438,6 @@
                     <param name="visible">true</param>
                     <param name="include_hintlabel">$PARAM[include_hintlabel]</param>
                     <param name="include_customwidth">$PARAM[include_customwidth]</param>
-                    <hitrect x="0" y="0" w="0" h="0" />
                     <onclick>SendClick(14)</onclick>
                 </include>
 
@@ -408,7 +456,6 @@
                     <param name="visible">Container.CanFilterAdvanced</param>
                     <param name="include_hintlabel">$PARAM[include_hintlabel]</param>
                     <param name="include_customwidth">$PARAM[include_customwidth]</param>
-                    <hitrect x="0" y="0" w="0" h="0" />
                     <onclick>Filter</onclick>
                 </include>
 
@@ -427,7 +474,6 @@
                     <param name="visible">!Container.Content(addons) + String.IsEmpty(Container.PluginName) + [Window.IsVisible(videos) | Window.IsVisible(music)]</param>
                     <param name="include_hintlabel">$PARAM[include_hintlabel]</param>
                     <param name="include_customwidth">$PARAM[include_customwidth]</param>
-                    <hitrect x="0" y="0" w="0" h="0" />
                     <onclick>SetFocus(50)</onclick>
                     <onclick condition="Window.IsVisible(videos)">UpdateLibrary(video)</onclick>
                     <onclick condition="Window.IsVisible(music)">UpdateLibrary(music)</onclick>
@@ -448,7 +494,6 @@
                     <param name="visible">!String.IsEmpty(Container.PluginName)</param>
                     <param name="include_hintlabel">$PARAM[include_hintlabel]</param>
                     <param name="include_customwidth">$PARAM[include_customwidth]</param>
-                    <hitrect x="0" y="0" w="0" h="0" />
                     <onclick>Addon.OpenSettings($INFO[Container.PluginName])</onclick>
                 </include>
 
@@ -466,7 +511,6 @@
                     <param name="itemgap">$PARAM[itemgap]</param>
                     <param name="include_hintlabel">$PARAM[include_hintlabel]</param>
                     <param name="include_customwidth">$PARAM[include_customwidth]</param>
-                    <hitrect x="0" y="0" w="0" h="0" />
                 </include>
 
                 <!-- Repeat -->
@@ -483,7 +527,6 @@
                     <param name="itemgap">$PARAM[itemgap]</param>
                     <param name="include_hintlabel">$PARAM[include_hintlabel]</param>
                     <param name="include_customwidth">$PARAM[include_customwidth]</param>
-                    <hitrect x="0" y="0" w="0" h="0" />
                 </include>
 
                 <!-- Save -->
@@ -500,7 +543,6 @@
                     <param name="itemgap">$PARAM[itemgap]</param>
                     <param name="include_hintlabel">$PARAM[include_hintlabel]</param>
                     <param name="include_customwidth">$PARAM[include_customwidth]</param>
-                    <hitrect x="0" y="0" w="0" h="0" />
                 </include>
 
                 <!-- Clear -->
@@ -517,7 +559,6 @@
                     <param name="itemgap">$PARAM[itemgap]</param>
                     <param name="include_hintlabel">$PARAM[include_hintlabel]</param>
                     <param name="include_customwidth">$PARAM[include_customwidth]</param>
-                    <hitrect x="0" y="0" w="0" h="0" />
                 </include>
 
                 <!-- Fullscreen -->
@@ -535,7 +576,6 @@
                     <param name="visible">Player.HasMedia</param>
                     <param name="include_hintlabel">$PARAM[include_hintlabel]</param>
                     <param name="include_customwidth">$PARAM[include_customwidth]</param>
-                    <hitrect x="0" y="0" w="0" h="0" />
                     <onclick>Dialog.Close(all,true)</onclick>
                     <onclick>Fullscreen</onclick>
                 </include>
@@ -587,7 +627,7 @@
             <control type="group">
                 <!-- <left>view_poster_itemlayout_w</left>
                 <right>view_poster_itemlayout_w</right> -->
-                <visible allowhiddenfocus="true">Control.HasFocus(60) | Control.HasFocus(610)</visible>
+                <visible>String.IsEqual(Window.Property(View.BottomPanelMode),scroll) | Control.HasFocus(60) | Control.HasFocus(610)</visible>
                 <visible>!$EXP[Exp_View_Scrollbar_Midi_V]</visible>
                 <visible>!$EXP[Exp_View_Scrollbar_Mini_V]</visible>
                 <visible>!$EXP[Exp_View_Scrollbar_Maxi_V]</visible>
@@ -602,8 +642,11 @@
                     <texturesliderbackground colordiffuse="main_fg_12" border="4">scrollbar/scrollh_line.png</texturesliderbackground>
                     <include>Texture_Scrollbar_SliderBar_H</include>
                     <include>Texture_Scrollbar_H</include>
+                    <onup>ClearProperty(View.BottomPanelMode)</onup>
                     <onup>50</onup>
+                    <ondown>SetProperty(View.BottomPanelMode,filter)</ondown>
                     <ondown>SetFocus(600,$VAR[Action_View_Filter_Focus],absolute)</ondown>
+                    <onback>ClearProperty(View.BottomPanelMode)</onback>
                     <onback>50</onback>
                 </control>
             </control>
@@ -619,7 +662,7 @@
                 <height>80</height>
                 <centertop>50%</centertop>
 
-                <visible allowhiddenfocus="true">Control.HasFocus($PARAM[editid]) | Control.HasFocus($PARAM[id]) | Control.HasFocus($PARAM[autocompleteid])</visible>
+                <visible>String.IsEqual(Window.Property(View.BottomPanelMode),filter) | Control.HasFocus($PARAM[editid]) | Control.HasFocus($PARAM[id]) | Control.HasFocus($PARAM[autocompleteid])</visible>
 
                 <control type="group">
                     <height>80</height>
@@ -635,8 +678,10 @@
                         <textoffsetx>0</textoffsetx>
                         <height>40</height>
                         <top>-20</top>
+                        <onup>ClearProperty(View.BottomPanelMode)</onup>
                         <onup>50</onup>
                         <ondown>$PARAM[id]</ondown>
+                        <onback>ClearProperty(View.BottomPanelMode)</onback>
                         <onback>50</onback>
                     </control>
 
@@ -654,8 +699,10 @@
 
                         <width>560</width>
                         <centerleft>50%</centerleft>
+                        <onup>ClearProperty(View.BottomPanelMode)</onup>
                         <onup>50</onup>
                         <ondown>$PARAM[autocompleteid]</ondown>
+                        <onback>ClearProperty(View.BottomPanelMode)</onback>
                         <onback>50</onback>
 
                         <height>85</height>
@@ -878,8 +925,11 @@
                         <width>960</width>
 
                         <onup>$PARAM[id]</onup>
+                        <onback>ClearProperty(View.BottomPanelMode)</onback>
                         <onback>50</onback>
-                        <ondown>SetFocus(8000)</ondown>
+                        <ondown>SetProperty(View.BottomPanelMode,sort)</ondown>
+                        <ondown condition="!Window.IsVisible(MyPlaylist.xml)">SetFocus(8001)</ondown>
+                        <ondown condition="Window.IsVisible(MyPlaylist.xml)">SetFocus(20)</ondown>
 
                         <centerleft>50%</centerleft>
 
@@ -1005,7 +1055,8 @@
                 <include>Texture_Scrollbar_SliderBar_V</include>
                 <texturesliderbackground colordiffuse="main_fg_12" border="4">scrollbar/scrollv_line.png</texturesliderbackground>
                 <onleft>50</onleft>
-                <onright condition="!Window.IsVisible(MyPlaylist.xml)">SetFocus(8000)</onright>
+                <onright condition="!Window.IsVisible(MyPlaylist.xml)">SetFocus(8001)</onright>
+                <onright condition="Window.IsVisible(MyPlaylist.xml)">SetFocus(20)</onright>
                 <onback>50</onback>
             </control>
         </control>
