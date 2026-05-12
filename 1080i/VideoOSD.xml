@@ -213,6 +213,8 @@
                         <visible>Pvr.IsPlayingTv</visible>
                     </control>
                     <control type="slider" id="8200">
+                        <left>56</left>
+                        <right>56</right>
                         <info>Player.Progress</info>
                         <action>seek</action>
                         <texturesliderbar />
