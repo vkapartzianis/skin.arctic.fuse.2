@@ -29,7 +29,9 @@
             <onleft condition="!String.IsEqual(ListItem.Property(tmdb_type),person)">4001</onleft>
             <onleft condition="String.IsEqual(ListItem.Property(tmdb_type),person)">SetFocus(61)</onleft>
             <onright condition="String.IsEqual(ListItem.Property(tmdb_type),person)">SetFocus(61)</onright>
-            <onup>61</onup>
+            <onup condition="!String.IsEmpty(Window.Property(DialogInfo.ReturnedFromWidgets))">SetFocus(4001)</onup>
+            <onup condition="!String.IsEmpty(Window.Property(DialogInfo.ReturnedFromWidgets))">AlarmClock(DialogInfoReturnWidgetsClear,ClearProperty(DialogInfo.ReturnedFromWidgets),00:00,silent)</onup>
+            <onup condition="String.IsEmpty(Window.Property(DialogInfo.ReturnedFromWidgets))">61</onup>
             <onfocus>ClearProperty(Background.DialogInfo.HideArtwork,Home)</onfocus>
             <onclick condition="String.IsEqual(ListItem.Property(tmdb_type),person)">SetFocus(61)</onclick>
             <onclick condition="!String.IsEqual(ListItem.Property(tmdb_type),person)">SendClick(8)</onclick>
@@ -73,8 +75,11 @@
                 <include>DialogInfo_Widget_Grouplist</include>
 
                 <onfocus>SetProperty(DialogInfo.WidgetsActive,true)</onfocus>
+                <onup>SetProperty(DialogInfo.ReturnedFromWidgets,true)</onup>
                 <onup>ClearProperty(DialogInfo.WidgetsActive)</onup>
                 <onup>ClearProperty(DialogInfo.WidgetContainer)</onup>
+                <onup>AlarmClock(DialogInfoReturnWidgetsFocus,SetFocus(4001),00:00,silent)</onup>
+                <onup>AlarmClock(DialogInfoReturnWidgetsClear,ClearProperty(DialogInfo.ReturnedFromWidgets),00:00,silent)</onup>
                 <onup>9000</onup>
                 <onback>ClearProperty(DialogInfo.WidgetsActive)</onback>
                 <onback>ClearProperty(DialogInfo.WidgetContainer)</onback>

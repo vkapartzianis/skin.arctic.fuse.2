@@ -1104,6 +1104,7 @@
         <onload>ClearProperty(TMDbHelper.WidgetContainer)</onload>
         <onload>ClearProperty(DialogInfo.WidgetContainer)</onload>
         <onload>ClearProperty(DialogInfo.WidgetsActive)</onload>
+        <onload>ClearProperty(DialogInfo.ReturnedFromWidgets)</onload>
     </include>
 
     <include name="DialogInfo_Button_GroupBuiltin">
@@ -1636,7 +1637,9 @@
                     <height>160</height>
                     <!-- <ondown>5000</ondown> -->
                     <ondown>90001</ondown>
-                    <onup>61</onup>
+                    <onup condition="!String.IsEmpty(Window.Property(DialogInfo.ReturnedFromWidgets))">SetFocus(4001)</onup>
+                    <onup condition="!String.IsEmpty(Window.Property(DialogInfo.ReturnedFromWidgets))">AlarmClock(DialogInfoReturnWidgetsClear,ClearProperty(DialogInfo.ReturnedFromWidgets),00:00,silent)</onup>
+                    <onup condition="String.IsEmpty(Window.Property(DialogInfo.ReturnedFromWidgets))">61</onup>
 
                     <include content="DialogInfo_Button_Expansion">
                         <param name="backing">true</param>
@@ -1843,7 +1846,9 @@
                     <top>-40</top>
                     <height>160</height>
                     <ondown>5000</ondown>
-                    <onup>61</onup>
+                    <onup condition="!String.IsEmpty(Window.Property(DialogInfo.ReturnedFromWidgets))">SetFocus(4001)</onup>
+                    <onup condition="!String.IsEmpty(Window.Property(DialogInfo.ReturnedFromWidgets))">AlarmClock(DialogInfoReturnWidgetsClear,ClearProperty(DialogInfo.ReturnedFromWidgets),00:00,silent)</onup>
+                    <onup condition="String.IsEmpty(Window.Property(DialogInfo.ReturnedFromWidgets))">61</onup>
 
                     <include content="DialogInfo_Button_Expansion">
                         <param name="backing">true</param>
