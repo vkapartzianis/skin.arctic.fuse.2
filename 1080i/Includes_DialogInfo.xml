@@ -799,6 +799,7 @@
             <param name="widgetheight">widget_items_h_gallery</param>
             <param name="altvisible">!String.IsEqual(Window.Property(CurrentID),Window.Property(BaseID))</param>
             <onfocus>SetProperty(CurrentID,$INFO[Window.Property(BaseID)])</onfocus>
+            <onfocus>SetProperty(DialogInfo.WidgetContainer,5020)</onfocus>
 
             <content>
                 <item>
@@ -1101,6 +1102,7 @@
 
     <include name="DialogInfo_Onload">
         <onload>ClearProperty(TMDbHelper.WidgetContainer)</onload>
+        <onload>ClearProperty(DialogInfo.WidgetContainer)</onload>
         <onload>ClearProperty(DialogInfo.WidgetsActive)</onload>
     </include>
 

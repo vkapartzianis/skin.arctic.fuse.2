@@ -74,8 +74,10 @@
 
                 <onfocus>SetProperty(DialogInfo.WidgetsActive,true)</onfocus>
                 <onup>ClearProperty(DialogInfo.WidgetsActive)</onup>
+                <onup>ClearProperty(DialogInfo.WidgetContainer)</onup>
                 <onup>9000</onup>
                 <onback>ClearProperty(DialogInfo.WidgetsActive)</onback>
+                <onback>ClearProperty(DialogInfo.WidgetContainer)</onback>
                 <onback>8000</onback>
                 <ondown>330</ondown>
 
