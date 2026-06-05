@@ -2,7 +2,7 @@
 <includes>
 
     <include name="DialogInfo_Main_Group">
-        <visible>!ControlGroup(5000).HasFocus()</visible>
+        <visible>!$EXP[Exp_InfoDialogs_WidgetsGroup_HasFocus]</visible>
         <include content="Animation_Slide_In">
             <param name="type">WindowOpen</param>
             <param name="posy">160</param>
@@ -124,8 +124,8 @@
     <include name="DialogInfo_Widget_Group">
         <top>880</top>
         <bottom>-880</bottom>
-        <animation effect="slide" tween="quadratic" reversible="false" time="400" condition="ControlGroup(5000).HasFocus()" start="0" end="0,-880">Conditional</animation>
-        <animation effect="slide" tween="quadratic" reversible="false" time="400" condition="!ControlGroup(5000).HasFocus()" end="0" start="0,-880">Conditional</animation>
+        <animation effect="slide" tween="quadratic" reversible="false" time="400" condition="$EXP[Exp_InfoDialogs_WidgetsGroup_HasFocus]" start="0" end="0,-880">Conditional</animation>
+        <animation effect="slide" tween="quadratic" reversible="false" time="400" condition="!$EXP[Exp_InfoDialogs_WidgetsGroup_HasFocus]" end="0" start="0,-880">Conditional</animation>
     </include>
 
     <include name="DialogInfo_Widget_Grouplist">
@@ -139,7 +139,7 @@
 
     <include name="DialogInfo_Furniture">
         <control type="group">
-            <visible>!ControlGroup(5000).HasFocus()</visible>
+            <visible>!$EXP[Exp_InfoDialogs_WidgetsGroup_HasFocus]</visible>
             <include content="Animation_Fade_In">
                 <param name="type">Visible</param>
             </include>
@@ -1101,6 +1101,7 @@
 
     <include name="DialogInfo_Onload">
         <onload>ClearProperty(TMDbHelper.WidgetContainer)</onload>
+        <onload>ClearProperty(DialogInfo.WidgetsActive)</onload>
     </include>
 
     <include name="DialogInfo_Button_GroupBuiltin">

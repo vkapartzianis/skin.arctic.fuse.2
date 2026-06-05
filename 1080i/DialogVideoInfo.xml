@@ -72,7 +72,10 @@
             <control type="grouplist" id="5000">
                 <include>DialogInfo_Widget_Grouplist</include>
 
+                <onfocus>SetProperty(DialogInfo.WidgetsActive,true)</onfocus>
+                <onup>ClearProperty(DialogInfo.WidgetsActive)</onup>
                 <onup>9000</onup>
+                <onback>ClearProperty(DialogInfo.WidgetsActive)</onback>
                 <onback>8000</onback>
                 <ondown>330</ondown>
 
