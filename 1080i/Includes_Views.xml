@@ -252,6 +252,8 @@
 
     <include name="View_Furniture_Bottom_ViewLine">
         <param name="fade_condition">true</param>
+        <param name="left">0</param>
+        <param name="right">0</param>
         <definition>
             <control type="group">
                 <visible>$PARAM[visible]</visible>
@@ -262,8 +264,8 @@
                     <param name="haspath">$PARAM[haspath]</param>
                     <param name="use_highlight">$PARAM[use_highlight]</param>
                     <param name="top">10</param>
-                    <param name="left">0</param>
-                    <param name="right">0</param>
+                    <param name="left">$PARAM[left]</param>
+                    <param name="right">$PARAM[right]</param>
                     <param name="textcolor">$PARAM[textcolor]</param>
                 </include>
             </control>
@@ -298,13 +300,13 @@
         <control type="group">
             <width>80</width>
             <height>80</height>
-            <right>10</right>
+            <left>0</left>
             <centertop>50%</centertop>
 
             <control type="image">
                 <width>80</width>
                 <height>80</height>
-                <centerleft>50%</centerleft>
+                <left>-22</left>
                 <centertop>50%</centertop>
                 <texture colordiffuse="main_fg_30">special://skin/extras/icons/bars.png</texture>
                 <visible>!Control.HasFocus(8090)</visible>
@@ -313,7 +315,7 @@
             <control type="image">
                 <width>80</width>
                 <height>80</height>
-                <centerleft>50%</centerleft>
+                <left>-22</left>
                 <centertop>50%</centertop>
                 <texture colordiffuse="main_fg_90">special://skin/extras/icons/bars.png</texture>
                 <visible>Control.HasFocus(8090)</visible>

@@ -150,6 +150,7 @@
                 <include content="View_Furniture_Bottom_ViewLine" condition="Window.IsMedia + !Window.IsVisible(addonbrowser) + !Window.IsVisible(eventlog) + !Window.IsVisible(MyMusicPlaylistEditor.xml)">
                     <param name="visible">true</param>
                     <param name="label">$INFO[Container.NumItems,, $LOCALIZE[31022]]</param>
+                    <param name="left">65</param>
                 </include>
                 <include content="View_Furniture_Bottom_ViewLine" condition="$EXP[Exp_PlainBackgroundWindows]">
                     <param name="visible">true</param>
