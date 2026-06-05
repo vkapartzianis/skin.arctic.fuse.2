@@ -618,6 +618,7 @@
     <variable name="Action_View_Filter_Focus">
         <value condition="!String.IsEmpty(Control.GetLabel(19).index(1))">999</value>
         <value condition="!$EXP[Exp_IsAlphabetStrip]">0</value>
+        <value condition="$EXP[Exp_View_Combined_IsVisible]">0</value>
         <value condition="String.IsEqual(ListItem.SortLetter,A)">0</value>
         <value condition="String.IsEqual(ListItem.SortLetter,B)">1</value>
         <value condition="String.IsEqual(ListItem.SortLetter,C)">2</value>
