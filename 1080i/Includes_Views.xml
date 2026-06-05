@@ -41,7 +41,7 @@
 
         <include content="Object_Hidden_Button">
             <param name="id">610</param>
-            <onup>50</onup>
+            <onup>SetFocus($VAR[Action_View_ContentID])</onup>
             <ondown>SetFocus(600,$VAR[Action_View_Filter_Focus],absolute)</ondown>
             <onback>50</onback>
             <onleft>SetFocus(50)</onleft>
@@ -324,7 +324,7 @@
                 <height>80</height>
                 <texturenofocus />
                 <texturefocus />
-                <onup>50</onup>
+                <onup>SetFocus($VAR[Action_View_ContentID])</onup>
                 <onback>50</onback>
                 <onleft>50</onleft>
                 <onclick condition="String.IsEqual(Window.Property(View.BottomPanelMode),scroll)">SetProperty(View.BottomPanelMode,filter)</onclick>
@@ -353,7 +353,7 @@
                 <align>center</align>
                 <right>0</right>
                 <onup>ClearProperty(View.BottomPanelMode)</onup>
-                <onup>50</onup>
+                <onup>SetFocus($VAR[Action_View_ContentID])</onup>
                 <onback>ClearProperty(View.BottomPanelMode)</onback>
                 <onback>50</onback>
                 <ondown>ClearProperty(View.BottomPanelMode)</ondown>
@@ -643,7 +643,7 @@
                     <include>Texture_Scrollbar_SliderBar_H</include>
                     <include>Texture_Scrollbar_H</include>
                     <onup>ClearProperty(View.BottomPanelMode)</onup>
-                    <onup>50</onup>
+                    <onup>SetFocus($VAR[Action_View_ContentID])</onup>
                     <ondown>SetProperty(View.BottomPanelMode,filter)</ondown>
                     <ondown>SetFocus(600,$VAR[Action_View_Filter_Focus],absolute)</ondown>
                     <onback>ClearProperty(View.BottomPanelMode)</onback>
@@ -679,7 +679,7 @@
                         <height>40</height>
                         <top>-20</top>
                         <onup>ClearProperty(View.BottomPanelMode)</onup>
-                        <onup>50</onup>
+                        <onup>SetFocus($VAR[Action_View_ContentID])</onup>
                         <ondown>$PARAM[id]</ondown>
                         <onback>ClearProperty(View.BottomPanelMode)</onback>
                         <onback>50</onback>
@@ -700,7 +700,7 @@
                         <width>560</width>
                         <centerleft>50%</centerleft>
                         <onup>ClearProperty(View.BottomPanelMode)</onup>
-                        <onup>50</onup>
+                        <onup>SetFocus($VAR[Action_View_ContentID])</onup>
                         <ondown>$PARAM[autocompleteid]</ondown>
                         <onback>ClearProperty(View.BottomPanelMode)</onback>
                         <onback>50</onback>

@@ -96,6 +96,11 @@
         <value condition="Control.IsVisible(502)">503</value>  <!-- Goto Widget Combined not Base -->
         <value condition="Control.IsVisible(512)">513</value>  <!-- Goto Widget Combined not Base -->
         <value condition="Control.IsVisible(522)">523</value>  <!-- Goto Widget Combined not Base -->
+        <value condition="Control.IsVisible(532)">533</value>  <!-- Goto Widget Combined not Base -->
+        <value condition="Control.IsVisible(542)">543</value>  <!-- Goto Widget Combined not Base -->
+        <value condition="Control.IsVisible(572)">573</value>  <!-- Goto Widget Combined not Base -->
+        <value condition="Control.IsVisible(582)">583</value>  <!-- Goto Widget Combined not Base -->
+        <value condition="Control.IsVisible(592)">593</value>  <!-- Goto Widget Combined not Base -->
         <value condition="Control.IsVisible(550)">550</value>
         <value condition="Control.IsVisible(551)">551</value>
         <value condition="Control.IsVisible(552)">552</value>
