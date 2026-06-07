@@ -329,6 +329,7 @@
     <variable name="Label_Header_Wizard">
         <value condition="String.IsEqual(Window(Home).Property(WizardStep),Themes)">$LOCALIZE[31453]</value>
         <value condition="String.IsEqual(Window(Home).Property(WizardStep),Dialog)">$LOCALIZE[31454]</value>
+        <value condition="String.IsEqual(Window(Home).Property(WizardStep),Prebuilt)">$LOCALIZE[31395]</value>
         <value>$LOCALIZE[31455]</value>
     </variable>
 

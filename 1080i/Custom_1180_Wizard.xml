@@ -13,6 +13,7 @@
         <include content="Object_Hidden_Button">
             <param name="id">8001</param>
             <onfocus condition="String.IsEqual(Window(Home).Property(WizardStep),Dialog)">SetProperty(WizardStep,Themes,Home)</onfocus>
+            <onfocus condition="String.IsEqual(Window(Home).Property(WizardStep),Prebuilt)">SetProperty(WizardStep,Layout,Home)</onfocus>
             <onfocus condition="String.IsEqual(Window(Home).Property(WizardStep),Layout)">SetProperty(WizardStep,Dialog,Home)</onfocus>
             <onfocus condition="![String.IsEmpty(Window(Home).Property(WizardStep)) | String.IsEqual(Window(Home).Property(WizardStep),Themes)]">SetFocus(50)</onfocus>
             <onfocus condition="String.IsEmpty(Window(Home).Property(WizardStep)) | String.IsEqual(Window(Home).Property(WizardStep),Themes)">PreviousMenu</onfocus>
@@ -70,6 +71,7 @@
                     <enable>!String.IsEqual(Window(Home).Property(WizardStep),Themes)</enable>
                     <onclick condition="String.IsEqual(Window(Home).Property(WizardStep),Dialog)">SetProperty(WizardStep,Themes,Home)</onclick>
                     <onclick condition="String.IsEqual(Window(Home).Property(WizardStep),Layout)">SetProperty(WizardStep,Dialog,Home)</onclick>
+                    <onclick condition="String.IsEqual(Window(Home).Property(WizardStep),Prebuilt)">SetProperty(WizardStep,Layout,Home)</onclick>
                     <onclick>SetFocus(50)</onclick>
                 </include>
                 <include content="Dialog_Button_Expanded">
@@ -77,9 +79,10 @@
                     <param name="label">$LOCALIZE[209]</param>
                     <param name="icon">special://skin/extras/icons/circle-right.png</param>
                     <param name="width">220</param>
-                    <enable>!String.IsEqual(Window(Home).Property(WizardStep),Layout)</enable>
+                    <enable>!String.IsEqual(Window(Home).Property(WizardStep),Prebuilt)</enable>
                     <onclick condition="String.IsEqual(Window(Home).Property(WizardStep),Themes)">SetProperty(WizardStep,Dialog,Home)</onclick>
                     <onclick condition="String.IsEqual(Window(Home).Property(WizardStep),Dialog)">SetProperty(WizardStep,Layout,Home)</onclick>
+                    <onclick condition="String.IsEqual(Window(Home).Property(WizardStep),Layout)">SetProperty(WizardStep,Prebuilt,Home)</onclick>
                     <onclick>SetFocus(50)</onclick>
                 </include>
             </include>
