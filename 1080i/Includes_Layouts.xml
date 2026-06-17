@@ -1018,6 +1018,7 @@
                     <control type="group">
                         <visible>![$EXP[Exp_IsGenre] | $EXP[Exp_IsStudio] | $EXP[Exp_IsCountry]]</visible>
                         <include content="Object_InfoCircle" condition="!$PARAM[selected]">
+                            <param name="selected">false</param>
                             <param name="icon">$VAR[Image_MediaList_Icon]</param>
                             <param name="role">$VAR[Label_MediaList_Title]</param>
                             <param name="name">$VAR[Label_VideoInfo_DetailsItem]</param>
@@ -1029,6 +1030,7 @@
                             </include>
                             <include content="Object_InfoCircle_Image">
                                 <param name="colordiffuse">white</param>
+                                <param name="symbolic_colordiffuse">main_fg_90</param>
                                 <param name="icon">$VAR[Image_MediaList_Thumb]</param>
                             </include>
                             <control type="label">
@@ -1062,6 +1064,7 @@
                             </control>
                         </include>
                         <include content="Object_InfoCircle" condition="$PARAM[selected]">
+                            <param name="selected">true</param>
                             <param name="icon">$VAR[Image_MediaList_Icon]</param>
                             <param name="textcolor_top">$VAR[ColorSelected]</param>
                             <param name="textcolor_sub">$VAR[ColorSelected]</param>
@@ -1073,6 +1076,8 @@
                             </include>
                             <include content="Object_InfoCircle_Image">
                                 <param name="colordiffuse">white</param>
+                                <param name="symbolic_colordiffuse">main_fg_90</param>
+                                <param name="symbolic_selected">true</param>
                                 <param name="icon">$VAR[Image_MediaList_Thumb]</param>
                             </include>
                             <control type="label">
