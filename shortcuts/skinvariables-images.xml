@@ -3,6 +3,8 @@
 
     <!-- Images -->
     <variable name="Image_MediaList_Thumb" containers="50">
+        <value condition="String.IsEqual({listitem}.Property(kine.art.prefericon.symbolic),true)" />
+        <value condition="!String.IsEmpty({listitem}.Property(kine.art.prefericon))">$INFO[{listitem}.Art(icon)]</value>
         <value condition="[String.IsEqual({listitem}.DBType,episode) | String.IsEqual({listitem}.DBType,video) | String.IsEqual({listitem}.DBType,musicvideo)] + !String.IsEmpty({listitem}.Art(thumb)) + !String.IsEqual({listitem}.Icon,{listitem}.Art(fanart)) + !String.IsEqual({listitem}.Icon,OverlaySpoiler.png) + !String.IsEqual({listitem}.Art(thumb),{listitem}.Art(poster)) + !String.IsEqual({listitem}.Art(thumb),{listitem}.Art(tvshow.poster))">$INFO[{listitem}.Art(thumb)]</value>
         <value condition="!String.IsEmpty({listitem}.EPGEventIcon)">$INFO[{listitem}.EPGEventIcon]</value>
         <value condition="!String.IsEmpty({listitem}.Art(discart))">$INFO[{listitem}.Art(discart)]</value>
@@ -26,6 +28,8 @@
     </variable>
 
     <variable name="Image_MediaList_Icon" containers="50">
+        <value condition="String.IsEqual({listitem}.Property(kine.art.prefericon.symbolic),true)">$INFO[{listitem}.Art(icon)]</value>
+        <value condition="!String.IsEmpty({listitem}.Property(kine.art.prefericon))" />
         <value condition="[String.IsEqual({listitem}.DBType,episode) | String.IsEqual({listitem}.DBType,video) | String.IsEqual({listitem}.DBType,musicvideo)] + !String.IsEmpty({listitem}.Art(thumb)) + !String.IsEqual({listitem}.Icon,{listitem}.Art(fanart)) + !String.IsEqual({listitem}.Icon,OverlaySpoiler.png) + !String.IsEqual({listitem}.Art(thumb),{listitem}.Art(poster)) + !String.IsEqual({listitem}.Art(thumb),{listitem}.Art(tvshow.poster))" />
         <value condition="!String.IsEmpty({listitem}.EPGEventIcon)" />
         <value condition="!String.IsEmpty({listitem}.Art(discart))" />

@@ -2,6 +2,8 @@
 <includes>
 
     <variable name="Image_MediaList_Thumb_C50">
+        <value condition="String.IsEqual(Container(50).ListItem.Property(kine.art.prefericon.symbolic),true)"/>
+        <value condition="!String.IsEmpty(Container(50).ListItem.Property(kine.art.prefericon))">$INFO[Container(50).ListItem.Art(icon)]</value>
         <value condition="[String.IsEqual(Container(50).ListItem.DBType,episode) | String.IsEqual(Container(50).ListItem.DBType,video) | String.IsEqual(Container(50).ListItem.DBType,musicvideo)] + !String.IsEmpty(Container(50).ListItem.Art(thumb)) + !String.IsEqual(Container(50).ListItem.Icon,Container(50).ListItem.Art(fanart)) + !String.IsEqual(Container(50).ListItem.Icon,OverlaySpoiler.png) + !String.IsEqual(Container(50).ListItem.Art(thumb),Container(50).ListItem.Art(poster)) + !String.IsEqual(Container(50).ListItem.Art(thumb),Container(50).ListItem.Art(tvshow.poster))">$INFO[Container(50).ListItem.Art(thumb)]</value>
         <value condition="!String.IsEmpty(Container(50).ListItem.EPGEventIcon)">$INFO[Container(50).ListItem.EPGEventIcon]</value>
         <value condition="!String.IsEmpty(Container(50).ListItem.Art(discart))">$INFO[Container(50).ListItem.Art(discart)]</value>
@@ -22,6 +24,8 @@
         <value condition="!String.IsEmpty(Container(50).ListItem.Icon)">$INFO[Container(50).ListItem.Icon]</value>
     </variable>
     <variable name="Image_MediaList_Thumb">
+        <value condition="String.IsEqual(ListItem.Property(kine.art.prefericon.symbolic),true)"/>
+        <value condition="!String.IsEmpty(ListItem.Property(kine.art.prefericon))">$INFO[ListItem.Art(icon)]</value>
         <value condition="[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,musicvideo)] + !String.IsEmpty(ListItem.Art(thumb)) + !String.IsEqual(ListItem.Icon,ListItem.Art(fanart)) + !String.IsEqual(ListItem.Icon,OverlaySpoiler.png) + !String.IsEqual(ListItem.Art(thumb),ListItem.Art(poster)) + !String.IsEqual(ListItem.Art(thumb),ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(thumb)]</value>
         <value condition="!String.IsEmpty(ListItem.EPGEventIcon)">$INFO[ListItem.EPGEventIcon]</value>
         <value condition="!String.IsEmpty(ListItem.Art(discart))">$INFO[ListItem.Art(discart)]</value>
@@ -42,6 +46,8 @@
         <value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
     </variable>
     <variable name="Image_MediaList_Icon_C50">
+        <value condition="String.IsEqual(Container(50).ListItem.Property(kine.art.prefericon.symbolic),true)">$INFO[Container(50).ListItem.Art(icon)]</value>
+        <value condition="!String.IsEmpty(Container(50).ListItem.Property(kine.art.prefericon))"/>
         <value condition="[String.IsEqual(Container(50).ListItem.DBType,episode) | String.IsEqual(Container(50).ListItem.DBType,video) | String.IsEqual(Container(50).ListItem.DBType,musicvideo)] + !String.IsEmpty(Container(50).ListItem.Art(thumb)) + !String.IsEqual(Container(50).ListItem.Icon,Container(50).ListItem.Art(fanart)) + !String.IsEqual(Container(50).ListItem.Icon,OverlaySpoiler.png) + !String.IsEqual(Container(50).ListItem.Art(thumb),Container(50).ListItem.Art(poster)) + !String.IsEqual(Container(50).ListItem.Art(thumb),Container(50).ListItem.Art(tvshow.poster))"/>
         <value condition="!String.IsEmpty(Container(50).ListItem.EPGEventIcon)"/>
         <value condition="!String.IsEmpty(Container(50).ListItem.Art(discart))"/>
@@ -66,6 +72,8 @@
         <value condition="String.StartsWith(Container(50).ListItem.Icon,special://skin/extras/icons/)">$INFO[Container(50).ListItem.Icon]</value>
     </variable>
     <variable name="Image_MediaList_Icon">
+        <value condition="String.IsEqual(ListItem.Property(kine.art.prefericon.symbolic),true)">$INFO[ListItem.Art(icon)]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(kine.art.prefericon))"/>
         <value condition="[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,musicvideo)] + !String.IsEmpty(ListItem.Art(thumb)) + !String.IsEqual(ListItem.Icon,ListItem.Art(fanart)) + !String.IsEqual(ListItem.Icon,OverlaySpoiler.png) + !String.IsEqual(ListItem.Art(thumb),ListItem.Art(poster)) + !String.IsEqual(ListItem.Art(thumb),ListItem.Art(tvshow.poster))"/>
         <value condition="!String.IsEmpty(ListItem.EPGEventIcon)"/>
         <value condition="!String.IsEmpty(ListItem.Art(discart))"/>
