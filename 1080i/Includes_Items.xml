@@ -3174,10 +3174,8 @@
         <item>
             <label>$LOCALIZE[31560]</label>
             <icon>special://skin/extras/screenshots/themes/Bright.jpg</icon>
-            <property name="selected">$VAR[Exp_Var_ColourPreset_BrightWhite]</property>
-            <include content="Action_Scheme_Onclick_Bright">
-                <param name="window_id">1180</param>
-            </include>
+            <property name="selected">$VAR[Wizard_Selected_Theme_Bright]</property>
+            <onclick>SetProperty(Wizard.Theme,bright,Home)</onclick>
             <onclick>SetProperty(WizardStepPrevious,True,Home)</onclick>
             <onclick>AlarmClock(reset,SetProperty(WizardStep,Dialog,Home),00:01,silent)</onclick>
             <onclick>AlarmClock(refocus,SetFocus(50,0,absolute),00:01,silent)</onclick>
@@ -3187,10 +3185,8 @@
         <item>
             <label>$LOCALIZE[31140]</label>
             <icon>special://skin/extras/screenshots/themes/Miami.jpg</icon>
-            <property name="selected">$VAR[Exp_Var_ColourPreset_MiamiVaporwave]</property>
-            <include content="Action_Scheme_Onclick_Miami">
-                <param name="window_id">1180</param>
-            </include>
+            <property name="selected">$VAR[Wizard_Selected_Theme_Miami]</property>
+            <onclick>SetProperty(Wizard.Theme,miami,Home)</onclick>
             <onclick>SetProperty(WizardStepPrevious,True,Home)</onclick>
             <onclick>AlarmClock(reset,SetProperty(WizardStep,Dialog,Home),00:01,silent)</onclick>
             <onclick>AlarmClock(refocus,SetFocus(50,0,absolute),00:01,silent)</onclick>
@@ -3200,10 +3196,8 @@
         <item>
             <label>$LOCALIZE[31243]</label>
             <icon>special://skin/extras/screenshots/themes/Midnight.jpg</icon>
-            <property name="selected">$VAR[Exp_Var_ColourPreset_MidnightPurple]</property>
-            <include content="Action_Scheme_Onclick_Midnight">
-                <param name="window_id">1180</param>
-            </include>
+            <property name="selected">$VAR[Wizard_Selected_Theme_Midnight]</property>
+            <onclick>SetProperty(Wizard.Theme,midnight,Home)</onclick>
             <onclick>SetProperty(WizardStepPrevious,True,Home)</onclick>
             <onclick>AlarmClock(reset,SetProperty(WizardStep,Dialog,Home),00:01,silent)</onclick>
             <onclick>AlarmClock(refocus,SetFocus(50,0,absolute),00:01,silent)</onclick>
@@ -3213,10 +3207,8 @@
         <item>
             <label>$LOCALIZE[31138]</label>
             <icon>special://skin/extras/screenshots/themes/Aqua.jpg</icon>
-            <property name="selected">$VAR[Exp_Var_ColourPreset_AquaClassic]</property>
-            <include content="Action_Scheme_Onclick_Aqua">
-                <param name="window_id">1180</param>
-            </include>
+            <property name="selected">$VAR[Wizard_Selected_Theme_Aqua]</property>
+            <onclick>SetProperty(Wizard.Theme,aqua,Home)</onclick>
             <onclick>SetProperty(WizardStepPrevious,True,Home)</onclick>
             <onclick>AlarmClock(reset,SetProperty(WizardStep,Dialog,Home),00:01,silent)</onclick>
             <onclick>AlarmClock(refocus,SetFocus(50,0,absolute),00:01,silent)</onclick>
@@ -3226,10 +3218,8 @@
         <item>
             <label>$LOCALIZE[31242]</label>
             <icon>special://skin/extras/screenshots/themes/Slate.jpg</icon>
-            <property name="selected">$VAR[Exp_Var_ColourPreset_BlueSlate]</property>
-            <include content="Action_Scheme_Onclick_Slate">
-                <param name="window_id">1180</param>
-            </include>
+            <property name="selected">$VAR[Wizard_Selected_Theme_Slate]</property>
+            <onclick>SetProperty(Wizard.Theme,slate,Home)</onclick>
             <onclick>SetProperty(WizardStepPrevious,True,Home)</onclick>
             <onclick>AlarmClock(reset,SetProperty(WizardStep,Dialog,Home),00:01,silent)</onclick>
             <onclick>AlarmClock(refocus,SetFocus(50,0,absolute),00:01,silent)</onclick>
@@ -3239,10 +3229,8 @@
         <item>
             <label>$LOCALIZE[31139]</label>
             <icon>special://skin/extras/screenshots/themes/Sunset.jpg</icon>
-            <property name="selected">$VAR[Exp_Var_ColourPreset_TropicalSunset]</property>
-            <include content="Action_Scheme_Onclick_Sunset">
-                <param name="window_id">1180</param>
-            </include>
+            <property name="selected">$VAR[Wizard_Selected_Theme_Sunset]</property>
+            <onclick>SetProperty(Wizard.Theme,sunset,Home)</onclick>
             <onclick>SetProperty(WizardStepPrevious,True,Home)</onclick>
             <onclick>AlarmClock(reset,SetProperty(WizardStep,Dialog,Home),00:01,silent)</onclick>
             <onclick>AlarmClock(refocus,SetFocus(50,0,absolute),00:01,silent)</onclick>
@@ -3255,11 +3243,9 @@
         <item>
             <label>$LOCALIZE[31432]</label>
             <icon>special://skin/extras/screenshots/dialogs/Adaptive.jpg</icon>
-            <property name="selected">$VAR[Exp_Var_DialogTheme_IsAdaptive]</property>
-            <onclick>RunScript(script.skinvariables,get_jsonrpc=Settings.SetSettingValue,setting=lookandfeel.skincolors,value=SKINDEFAULT)</onclick>
-            <onclick>Skin.SetString(Background.DialogImage,Adaptive)</onclick>
+            <property name="selected">$VAR[Wizard_Selected_Dialog_Adaptive]</property>
+            <onclick>SetProperty(Wizard.Dialog,adaptive,Home)</onclick>
             <onclick>SetProperty(WizardStepPrevious,True,Home)</onclick>
-            <onclick>ReloadSkin()</onclick>
             <onclick>AlarmClock(reset,SetProperty(WizardStep,Layout,Home),00:01,silent)</onclick>
             <onclick>AlarmClock(refocus,SetFocus(50,0,absolute),00:01,silent)</onclick>
             <visible>String.IsEqual(Window(Home).Property(WizardStep),Dialog)</visible>
@@ -3268,13 +3254,9 @@
         <item>
             <label>$LOCALIZE[602]</label>
             <icon>special://skin/extras/screenshots/dialogs/Standard.jpg</icon>
-            <property name="selected">$VAR[Exp_Var_DialogTheme_IsStandard]</property>
-            <onclick>Skin.Reset(Background.DialogImage)</onclick>
-            <onclick condition="$EXP[Exp_ColourHighlight_IsAqua]">Skin.SetString(Background.DialogImage,Green)</onclick>
-            <onclick condition="$EXP[Exp_ColourHighlight_IsTropical]">Skin.SetString(Background.DialogImage,Blush)</onclick>
-            <onclick>RunScript(script.skinvariables,get_jsonrpc=Settings.SetSettingValue,setting=lookandfeel.skincolors,value=SKINDEFAULT)</onclick>
+            <property name="selected">$VAR[Wizard_Selected_Dialog_Standard]</property>
+            <onclick>SetProperty(Wizard.Dialog,standard,Home)</onclick>
             <onclick>SetProperty(WizardStepPrevious,True,Home)</onclick>
-            <onclick>ReloadSkin()</onclick>
             <onclick>AlarmClock(reset,SetProperty(WizardStep,Layout,Home),00:01,silent)</onclick>
             <onclick>AlarmClock(refocus,SetFocus(50,0,absolute),00:01,silent)</onclick>
             <visible>String.IsEqual(Window(Home).Property(WizardStep),Dialog)</visible>
@@ -3283,11 +3265,9 @@
         <item>
             <label>$LOCALIZE[31221]</label>
             <icon>special://skin/extras/screenshots/dialogs/Slate.jpg</icon>
-            <property name="selected">$VAR[Exp_Var_DialogTheme_IsSlate]</property>
-            <onclick>Skin.SetString(Background.DialogImage,Slate)</onclick>
-            <onclick>RunScript(script.skinvariables,get_jsonrpc=Settings.SetSettingValue,setting=lookandfeel.skincolors,value=SKINDEFAULT)</onclick>
+            <property name="selected">$VAR[Wizard_Selected_Dialog_Slate]</property>
+            <onclick>SetProperty(Wizard.Dialog,slate,Home)</onclick>
             <onclick>SetProperty(WizardStepPrevious,True,Home)</onclick>
-            <onclick>ReloadSkin()</onclick>
             <onclick>AlarmClock(reset,SetProperty(WizardStep,Layout,Home),00:01,silent)</onclick>
             <onclick>AlarmClock(refocus,SetFocus(50,0,absolute),00:01,silent)</onclick>
             <visible>String.IsEqual(Window(Home).Property(WizardStep),Dialog)</visible>
@@ -3296,11 +3276,9 @@
         <item>
             <label>$LOCALIZE[31222]</label>
             <icon>special://skin/extras/screenshots/dialogs/Coal.jpg</icon>
-            <property name="selected">$VAR[Exp_Var_DialogTheme_IsCoal]</property>
-            <onclick>Skin.SetString(Background.DialogImage,Coal)</onclick>
-            <onclick>RunScript(script.skinvariables,get_jsonrpc=Settings.SetSettingValue,setting=lookandfeel.skincolors,value=SKINDEFAULT)</onclick>
+            <property name="selected">$VAR[Wizard_Selected_Dialog_Coal]</property>
+            <onclick>SetProperty(Wizard.Dialog,coal,Home)</onclick>
             <onclick>SetProperty(WizardStepPrevious,True,Home)</onclick>
-            <onclick>ReloadSkin()</onclick>
             <onclick>AlarmClock(reset,SetProperty(WizardStep,Layout,Home),00:01,silent)</onclick>
             <onclick>AlarmClock(refocus,SetFocus(50,0,absolute),00:01,silent)</onclick>
             <visible>String.IsEqual(Window(Home).Property(WizardStep),Dialog)</visible>
@@ -3311,12 +3289,9 @@
         <item>
             <label>$LOCALIZE[10036]</label>
             <icon>special://skin/extras/screenshots/layouts/Basic.jpg</icon>
-            <property name="selected">$VAR[Exp_Var_HomeLayout_IsBasic]</property>
+            <property name="selected">$VAR[Wizard_Selected_Layout_Basic]</property>
+            <onclick>SetProperty(Wizard.Layout,basic,Home)</onclick>
             <onclick>SetProperty(WizardStepPrevious,True,Home)</onclick>
-            <onclick>Skin.Reset(Hub.Home.ReplaceWindow)</onclick>
-            <onclick>Skin.SetBool(Hub.Home.DisableSubmenu)</onclick>
-            <onclick>Skin.Reset(Hub.Home.EnableDetailedInformation)</onclick>
-            <onclick>Skin.SetString(Shortcuts.RebuildDateTime,$INFO[System.Date(yyyy-mm-dd)]_$INFO[System.Time(hh:mm:ss)])</onclick>
             <onclick>AlarmClock(reset,SetProperty(WizardStep,Prebuilt,Home),00:01,silent)</onclick>
             <onclick>AlarmClock(refocus,SetFocus(50,0,absolute),00:01,silent)</onclick>
             <visible>String.IsEqual(Window(Home).Property(WizardStep),Layout)</visible>
@@ -3325,12 +3300,9 @@
         <item>
             <label>$LOCALIZE[31137]</label>
             <icon>special://skin/extras/screenshots/layouts/Detailed.jpg</icon>
-            <property name="selected">$VAR[Exp_Var_HomeLayout_IsDetailed]</property>
+            <property name="selected">$VAR[Wizard_Selected_Layout_Detailed]</property>
+            <onclick>SetProperty(Wizard.Layout,detailed,Home)</onclick>
             <onclick>SetProperty(WizardStepPrevious,True,Home)</onclick>
-            <onclick>Skin.Reset(Hub.Home.ReplaceWindow)</onclick>
-            <onclick>Skin.SetBool(Hub.Home.DisableSubmenu)</onclick>
-            <onclick>Skin.SetBool(Hub.Home.EnableDetailedInformation)</onclick>
-            <onclick>Skin.SetString(Shortcuts.RebuildDateTime,$INFO[System.Date(yyyy-mm-dd)]_$INFO[System.Time(hh:mm:ss)])</onclick>
             <onclick>AlarmClock(reset,SetProperty(WizardStep,Prebuilt,Home),00:01,silent)</onclick>
             <onclick>AlarmClock(refocus,SetFocus(50,0,absolute),00:01,silent)</onclick>
             <visible>String.IsEqual(Window(Home).Property(WizardStep),Layout)</visible>
@@ -3339,12 +3311,9 @@
         <item>
             <label>$LOCALIZE[10038]</label>
             <icon>special://skin/extras/screenshots/layouts/Advanced.jpg</icon>
-            <property name="selected">$VAR[Exp_Var_HomeLayout_IsAdvanced]</property>
+            <property name="selected">$VAR[Wizard_Selected_Layout_Advanced]</property>
+            <onclick>SetProperty(Wizard.Layout,advanced,Home)</onclick>
             <onclick>SetProperty(WizardStepPrevious,True,Home)</onclick>
-            <onclick>Skin.Reset(Hub.Home.ReplaceWindow)</onclick>
-            <onclick>Skin.Reset(Hub.Home.DisableSubmenu)</onclick>
-            <onclick>Skin.Reset(Hub.Home.EnableDetailedInformation)</onclick>
-            <onclick>Skin.SetString(Shortcuts.RebuildDateTime,$INFO[System.Date(yyyy-mm-dd)]_$INFO[System.Time(hh:mm:ss)])</onclick>
             <onclick>AlarmClock(reset,SetProperty(WizardStep,Prebuilt,Home),00:01,silent)</onclick>
             <onclick>AlarmClock(refocus,SetFocus(50,0,absolute),00:01,silent)</onclick>
             <visible>String.IsEqual(Window(Home).Property(WizardStep),Layout)</visible>
@@ -3355,20 +3324,14 @@
         <item>
             <label>Local library</label>
             <icon>special://skin/extras/screenshots/widgets/LibraryBasic.jpg</icon>
-            <onclick>ClearProperty(WizardStep,Home)</onclick>
-            <onclick>RunScript(script.skinvariables,run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-prebuiltwidgets.json,use_rules=True,v=library-basic,skin=$VAR[Path_SkinVariables_SkinFolder])</onclick>
-            <onclick>Skin.SetString(Shortcuts.RebuildDateTime,$INFO[System.Date(yyyy-mm-dd)]_$INFO[System.Time(hh:mm:ss)])</onclick>
-            <onclick>PreviousMenu</onclick>
+            <onclick>RunScript(special://skin/scripts/prebuilt_widgets.py,v=library-basic,skin=$VAR[Path_SkinVariables_SkinFolder],close=true)</onclick>
             <visible>String.IsEqual(Window(Home).Property(WizardStep),Prebuilt)</visible>
             <property name="textbox">Use widgets based on your local media library. Best if your movies, TV shows, and music are already scanned into the library.</property>
         </item>
         <item>
             <label>TMDb Helper</label>
             <icon>special://skin/extras/screenshots/widgets/TMDbBasic.jpg</icon>
-            <onclick>ClearProperty(WizardStep,Home)</onclick>
-            <onclick>RunScript(script.skinvariables,run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-prebuiltwidgets.json,use_rules=True,v=tmdb-basic,skin=$VAR[Path_SkinVariables_SkinFolder])</onclick>
-            <onclick>Skin.SetString(Shortcuts.RebuildDateTime,$INFO[System.Date(yyyy-mm-dd)]_$INFO[System.Time(hh:mm:ss)])</onclick>
-            <onclick>PreviousMenu</onclick>
+            <onclick>RunScript(special://skin/scripts/prebuilt_widgets.py,v=tmdb-basic,skin=$VAR[Path_SkinVariables_SkinFolder],close=true)</onclick>
             <visible>String.IsEqual(Window(Home).Property(WizardStep),Prebuilt)</visible>
             <property name="textbox">Use widgets provided by TMDb Helper. Best if you want online discovery widgets such as trending movies and TV shows.</property>
         </item>

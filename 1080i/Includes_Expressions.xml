@@ -27,6 +27,45 @@
     <variable name="Exp_Var_HomeLayout_IsAdvanced">
         <value condition="!Skin.HasSetting(Hub.Home.DisableSubmenu)">True</value>
     </variable>
+    <variable name="Wizard_Selected_Theme_Bright">
+        <value condition="String.IsEqual(Window(Home).Property(Wizard.Theme),bright)">True</value>
+    </variable>
+    <variable name="Wizard_Selected_Theme_Miami">
+        <value condition="String.IsEqual(Window(Home).Property(Wizard.Theme),miami)">True</value>
+    </variable>
+    <variable name="Wizard_Selected_Theme_Aqua">
+        <value condition="String.IsEqual(Window(Home).Property(Wizard.Theme),aqua)">True</value>
+    </variable>
+    <variable name="Wizard_Selected_Theme_Sunset">
+        <value condition="String.IsEqual(Window(Home).Property(Wizard.Theme),sunset)">True</value>
+    </variable>
+    <variable name="Wizard_Selected_Theme_Slate">
+        <value condition="String.IsEqual(Window(Home).Property(Wizard.Theme),slate)">True</value>
+    </variable>
+    <variable name="Wizard_Selected_Theme_Midnight">
+        <value condition="String.IsEqual(Window(Home).Property(Wizard.Theme),midnight)">True</value>
+    </variable>
+    <variable name="Wizard_Selected_Dialog_Adaptive">
+        <value condition="String.IsEqual(Window(Home).Property(Wizard.Dialog),adaptive)">True</value>
+    </variable>
+    <variable name="Wizard_Selected_Dialog_Standard">
+        <value condition="String.IsEqual(Window(Home).Property(Wizard.Dialog),standard)">True</value>
+    </variable>
+    <variable name="Wizard_Selected_Dialog_Slate">
+        <value condition="String.IsEqual(Window(Home).Property(Wizard.Dialog),slate)">True</value>
+    </variable>
+    <variable name="Wizard_Selected_Dialog_Coal">
+        <value condition="String.IsEqual(Window(Home).Property(Wizard.Dialog),coal)">True</value>
+    </variable>
+    <variable name="Wizard_Selected_Layout_Basic">
+        <value condition="String.IsEqual(Window(Home).Property(Wizard.Layout),basic)">True</value>
+    </variable>
+    <variable name="Wizard_Selected_Layout_Detailed">
+        <value condition="String.IsEqual(Window(Home).Property(Wizard.Layout),detailed)">True</value>
+    </variable>
+    <variable name="Wizard_Selected_Layout_Advanced">
+        <value condition="String.IsEqual(Window(Home).Property(Wizard.Layout),advanced)">True</value>
+    </variable>
 
     <expression name="Exp_ColourTheme_IsGrey">[String.IsEqual(Skin.CurrentColourTheme,Dark Grey) | String.IsEqual(Skin.CurrentColourTheme,Dark Grey - Light dialogs)]</expression>
     <expression name="Exp_ColourTheme_IsBlack">[String.IsEqual(Skin.CurrentColourTheme,SKINDEFAULT) | String.IsEqual(Skin.CurrentColourTheme,Skin default - Light dialogs)]</expression>

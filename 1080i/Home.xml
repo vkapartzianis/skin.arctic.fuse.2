@@ -44,7 +44,8 @@
     </include>
 
 
-    <onload condition="!Skin.HasSetting(Wizard.FirstRun)">AlarmClock(openwizard,ActivateWindow(1180),00:01,silent)</onload>
+    <onload condition="!Skin.HasSetting(Wizard.FirstRun) + Skin.HasSetting(Home.FirstRun)">Skin.SetBool(Wizard.FirstRunSetup)</onload>
+    <onload condition="!Skin.HasSetting(Wizard.FirstRun) + Skin.HasSetting(Home.FirstRun)">AlarmClock(openwizard,ActivateWindow(1180),00:01,silent)</onload>
     <onload condition="!Skin.HasSetting(Home.FirstRun)">Skin.SetBool(Hub.Home.DisableSubmenu)</onload>
     <onload condition="!Skin.HasSetting(Home.FirstRun)">Skin.SetString(Shortcuts.RebuildDateTime,FirstRun)</onload>
     <onload condition="!Skin.HasSetting(Home.FirstRun)">Skin.SetBool(Home.FirstRun)</onload>

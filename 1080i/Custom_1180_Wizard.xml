@@ -3,11 +3,31 @@
 
     <defaultcontrol always="true">50</defaultcontrol>
     <include>Action_BlurImage_SimpleBackground_Onload</include>
-    <onunload>Skin.SetBool(Wizard.FirstRun)</onunload>
     <onload condition="String.IsEmpty(Window(Home).Property(WizardStep))">SetProperty(WizardStep,Themes,Home)</onload>
+    <onload>ClearProperty(Wizard.Theme,Home)</onload>
+    <onload>ClearProperty(Wizard.Dialog,Home)</onload>
+    <onload>ClearProperty(Wizard.Layout,Home)</onload>
+    <onload condition="String.IsEmpty(Skin.String(focuscolor.name)) + String.IsEmpty(Skin.String(gradientcolor.name)) + !Skin.HasSetting(DisableMonochromeHighlight) + !Skin.HasSetting(RevertSelectedText)">SetProperty(Wizard.Theme,bright,Home)</onload>
+    <onload condition="Skin.String(focuscolor.name,ffe91e63) + Skin.String(gradientcolor.name,ffb635e5) + Skin.HasSetting(DisableMonochromeHighlight) + Skin.HasSetting(RevertSelectedText)">SetProperty(Wizard.Theme,miami,Home)</onload>
+    <onload condition="Skin.String(focuscolor.name,ff0091ea) + Skin.String(gradientcolor.name,ff00bfa5) + Skin.HasSetting(DisableMonochromeHighlight) + Skin.HasSetting(RevertSelectedText)">SetProperty(Wizard.Theme,aqua,Home)</onload>
+    <onload condition="Skin.String(focuscolor.name,fff4511e) + Skin.String(gradientcolor.name,ffe91e63) + Skin.HasSetting(DisableMonochromeHighlight) + Skin.HasSetting(RevertSelectedText)">SetProperty(Wizard.Theme,sunset,Home)</onload>
+    <onload condition="Skin.String(focuscolor.name,ff0091ea) + Skin.String(gradientcolor.name,ff0091ea) + !Skin.HasSetting(DisableMonochromeHighlight) + Skin.HasSetting(RevertSelectedText)">SetProperty(Wizard.Theme,slate,Home)</onload>
+    <onload condition="Skin.String(focuscolor.name,ff5528a8) + Skin.String(gradientcolor.name,ff5528a8) + !Skin.HasSetting(DisableMonochromeHighlight) + Skin.HasSetting(RevertSelectedText)">SetProperty(Wizard.Theme,midnight,Home)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(Wizard.Theme))">SetProperty(Wizard.Theme,bright,Home)</onload>
+    <onload condition="Skin.String(Background.DialogImage,Adaptive)">SetProperty(Wizard.Dialog,adaptive,Home)</onload>
+    <onload condition="Skin.String(Background.DialogImage,Slate)">SetProperty(Wizard.Dialog,slate,Home)</onload>
+    <onload condition="Skin.String(Background.DialogImage,Coal)">SetProperty(Wizard.Dialog,coal,Home)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(Wizard.Dialog))">SetProperty(Wizard.Dialog,standard,Home)</onload>
+    <onload condition="Skin.HasSetting(Hub.Home.DisableSubmenu) + !Skin.HasSetting(Hub.Home.EnableDetailedInformation)">SetProperty(Wizard.Layout,basic,Home)</onload>
+    <onload condition="Skin.HasSetting(Hub.Home.DisableSubmenu) + Skin.HasSetting(Hub.Home.EnableDetailedInformation)">SetProperty(Wizard.Layout,detailed,Home)</onload>
+    <onload condition="!Skin.HasSetting(Hub.Home.DisableSubmenu)">SetProperty(Wizard.Layout,advanced,Home)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(Wizard.Layout))">SetProperty(Wizard.Layout,basic,Home)</onload>
     <onload>AlarmClock(refocus,SetFocus(50,0,absolute),00:00,silent)</onload>
     <onunload condition="String.IsEmpty(Window(Home).Property(WizardStepPrevious))">ClearProperty(WizardStep,Home)</onunload>
     <onunload>ClearProperty(WizardStepPrevious,Home)</onunload>
+    <onunload>ClearProperty(Wizard.Theme,Home)</onunload>
+    <onunload>ClearProperty(Wizard.Dialog,Home)</onunload>
+    <onunload>ClearProperty(Wizard.Layout,Home)</onunload>
     <controls>
 
         <include content="Object_Hidden_Button">
