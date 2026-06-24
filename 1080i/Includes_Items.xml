@@ -3322,6 +3322,13 @@
 
         <!-- Step 04: Prebuilt widgets -->
         <item>
+            <label>Existing widgets</label>
+            <icon>special://skin/extras/screenshots/widgets/LibraryCustom.jpg</icon>
+            <onclick>RunScript(special://skin/scripts/prebuilt_widgets.py,v=existing-widgets,skin=$VAR[Path_SkinVariables_SkinFolder],close=true)</onclick>
+            <visible>String.IsEqual(Window(Home).Property(WizardStep),Prebuilt) + !Skin.HasSetting(Wizard.FirstRunSetup)</visible>
+            <property name="textbox">Keep your current widget configuration intact while applying the other setup wizard choices.</property>
+        </item>
+        <item>
             <label>Local library</label>
             <icon>special://skin/extras/screenshots/widgets/LibraryBasic.jpg</icon>
             <onclick>RunScript(special://skin/scripts/prebuilt_widgets.py,v=library-basic,skin=$VAR[Path_SkinVariables_SkinFolder],close=true)</onclick>

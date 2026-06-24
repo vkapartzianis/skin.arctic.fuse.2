@@ -15,6 +15,7 @@ BASE_PROPERTY = "SkinVariables.ShortcutsNode"
 DEST_BASE = "special://profile/addon_data/script.skinvariables/nodes"
 SOURCE_BASE = "special://skin/shortcuts/prebuilt"
 HOME_WINDOW = 10000
+PRESERVE_WIDGETS_CHOICE = "existing-widgets"
 
 THEMES = {
     "bright": {
@@ -276,7 +277,7 @@ def main():
         xbmcgui.Dialog().ok("Prebuilt widgets", "Missing prebuilt widget choice or skin folder.")
         return
 
-    if not install_prebuilt(choice, skin):
+    if choice != PRESERVE_WIDGETS_CHOICE and not install_prebuilt(choice, skin):
         return
 
     window = xbmcgui.Window(HOME_WINDOW)
