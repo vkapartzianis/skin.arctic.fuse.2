@@ -21,6 +21,7 @@
     <onload condition="Skin.HasSetting(Hub.Home.DisableSubmenu) + !Skin.HasSetting(Hub.Home.EnableDetailedInformation)">SetProperty(Wizard.Layout,basic,Home)</onload>
     <onload condition="Skin.HasSetting(Hub.Home.DisableSubmenu) + Skin.HasSetting(Hub.Home.EnableDetailedInformation)">SetProperty(Wizard.Layout,detailed,Home)</onload>
     <onload condition="!Skin.HasSetting(Hub.Home.DisableSubmenu)">SetProperty(Wizard.Layout,advanced,Home)</onload>
+    <onload condition="Skin.HasSetting(Wizard.FirstRunSetup) + String.IsEqual(Window(Home).Property(Wizard.Layout),advanced)">SetProperty(Wizard.Layout,basic,Home)</onload>
     <onload condition="String.IsEmpty(Window(Home).Property(Wizard.Layout))">SetProperty(Wizard.Layout,basic,Home)</onload>
     <onload>AlarmClock(refocus,SetFocus(50,0,absolute),00:00,silent)</onload>
     <onunload condition="String.IsEmpty(Window(Home).Property(WizardStepPrevious))">ClearProperty(WizardStep,Home)</onunload>

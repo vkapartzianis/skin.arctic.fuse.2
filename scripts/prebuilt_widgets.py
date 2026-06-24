@@ -238,6 +238,8 @@ def apply_pending_wizard_choices(window):
     theme = window.getProperty("Wizard.Theme")
     dialog = window.getProperty("Wizard.Dialog")
     layout = window.getProperty("Wizard.Layout")
+    if layout == "advanced" and xbmc.getCondVisibility("Skin.HasSetting(Wizard.FirstRunSetup)"):
+        layout = "detailed"
 
     apply_theme(theme)
     apply_dialog(dialog, theme)

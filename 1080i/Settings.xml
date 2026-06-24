@@ -313,7 +313,7 @@
                                         <visible>System.AddonIsEnabled(screensaver.arctic.mirage)</visible>
                                     </item>
                                     <item>
-                                        <label>[CAPITALIZE]$LOCALIZE[31449][/CAPITALIZE]</label>
+                                        <label>[CAPITALIZE]$LOCALIZE[31449][/CAPITALIZE] (including $LOCALIZE[10038] layout)</label>
                                         <label2>skin.arctic.fuse.2</label2>
                                         <icon>special://skin/extras/icons/hat-wizard.png</icon>
                                         <onclick>ActivateWindow(1180)</onclick>

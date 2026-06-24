@@ -17,7 +17,7 @@
             <param name="id">002</param>
             <param name="dialog">false</param>
             <param name="control">button</param>
-            <label>$LOCALIZE[31449]</label>
+            <label>$LOCALIZE[31449] (including $LOCALIZE[10038] layout)</label>
             <onclick>ActivateWindow(1180)</onclick>
         </include>
 

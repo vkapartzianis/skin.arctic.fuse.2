@@ -3316,7 +3316,7 @@
             <onclick>SetProperty(WizardStepPrevious,True,Home)</onclick>
             <onclick>AlarmClock(reset,SetProperty(WizardStep,Prebuilt,Home),00:01,silent)</onclick>
             <onclick>AlarmClock(refocus,SetFocus(50,0,absolute),00:01,silent)</onclick>
-            <visible>String.IsEqual(Window(Home).Property(WizardStep),Layout)</visible>
+            <visible>String.IsEqual(Window(Home).Property(WizardStep),Layout) + !Skin.HasSetting(Wizard.FirstRunSetup)</visible>
             <property name="textbox">$LOCALIZE[31306]</property>
         </item>
 
