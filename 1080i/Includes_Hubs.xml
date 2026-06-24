@@ -752,7 +752,7 @@
                     <param name="bottom">widget_grouplist_b</param>
                 </include>
 
-                <include condition="$PARAM[is_homemenu] + $PARAM[widgets_only] + !Skin.HasSetting(Hub.$PARAM[window_id].EnableDetailedInformation)">Hub_Widgets_Grouplist__TouchFocus_Center</include>
+                <include condition="Window.IsVisible(Home)">Hub_Widgets_Grouplist__TouchFocus_Center</include>
 
                 <include condition="![$PARAM[widgets_only]]" content="Hub_Widgets_Grouplist__Def_Layout_Expanded">
                     <param name="window_id">$PARAM[window_id]</param>
