@@ -12,8 +12,10 @@
     <include name="Home_Menu_List_OnBackInfo">
         <oninfo>ActivateWindow(1170)</oninfo>
         <onback condition="!Skin.HasSetting(Home.DisableMenuOnBack)">CancelAlarm(SplashTimeOut,silent)</onback>
-        <onback condition="!Skin.HasSetting(Home.DisableMenuOnBack)">SetProperty(307Refocus,$INFO[System.CurrentControlID])</onback>
-        <onback condition="!Skin.HasSetting(Home.DisableMenuOnBack)">SetFocus(307)</onback>
+        <onback condition="!Skin.HasSetting(Home.DisableMenuOnBack)">CancelAlarm(HomeMenuBackHoldClear,true)</onback>
+        <onback condition="!Skin.HasSetting(Home.DisableMenuOnBack)">SetProperty(Home.MenuBackHold,True,Home)</onback>
+        <onback condition="!Skin.HasSetting(Home.DisableMenuOnBack)">AlarmClock(HomeMenuBackHoldClear,ClearProperty(Home.MenuBackHold,Home),00:03,silent)</onback>
+        <onback condition="!Skin.HasSetting(Home.DisableMenuOnBack)">SetFocus(300)</onback>
     </include>
 
     <include name="Home_Menu_List_Vert">

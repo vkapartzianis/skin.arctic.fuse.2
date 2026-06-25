@@ -43,6 +43,11 @@
         <param name="property_window_id">Home</param>
     </include>
 
+    <onunhandledback condition="!Skin.HasSetting(Home.DisableMenuOnBack)">CancelAlarm(SplashTimeOut,silent)</onunhandledback>
+    <onunhandledback condition="!Skin.HasSetting(Home.DisableMenuOnBack)">CancelAlarm(HomeMenuBackHoldClear,true)</onunhandledback>
+    <onunhandledback condition="!Skin.HasSetting(Home.DisableMenuOnBack)">SetProperty(Home.MenuBackHold,True,Home)</onunhandledback>
+    <onunhandledback condition="!Skin.HasSetting(Home.DisableMenuOnBack)">AlarmClock(HomeMenuBackHoldClear,ClearProperty(Home.MenuBackHold,Home),00:03,silent)</onunhandledback>
+    <onunhandledback condition="!Skin.HasSetting(Home.DisableMenuOnBack)">SetFocus(300)</onunhandledback>
 
     <onload condition="!Skin.HasSetting(Wizard.FirstRun) + Skin.HasSetting(Home.FirstRun)">Skin.SetBool(Wizard.FirstRunSetup)</onload>
     <onload condition="!Skin.HasSetting(Wizard.FirstRun) + Skin.HasSetting(Home.FirstRun)">AlarmClock(openwizard,ActivateWindow(1180),00:01,silent)</onload>
