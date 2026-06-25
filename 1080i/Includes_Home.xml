@@ -582,6 +582,24 @@
         </control>
     </include>
 
+    <include name="Home_Menu_Vert_HoverGuard">
+        <param name="onlist">320</param>
+        <definition>
+            <control type="button" id="316">
+                <left>-view_menu_main</left>
+                <width>view_menu_main</width>
+                <height>1080</height>
+                <texturenofocus />
+                <texturefocus />
+                <onleft>300</onleft>
+                <onright>$PARAM[onlist]</onright>
+                <onup>300</onup>
+                <ondown>300</ondown>
+                <onclick>SetFocus(300)</onclick>
+            </control>
+        </definition>
+    </include>
+
     <include name="Home_Menu_Vert">
         <control type="group">
 
@@ -594,6 +612,9 @@
 
             <control type="group">
                 <include>Hub_Menu_Fade</include>
+                <include content="Home_Menu_Vert_HoverGuard">
+                    <param name="onlist">$PARAM[onlist]</param>
+                </include>
                 <include>Home_Menu_Vert_SearchAndOptions</include>
                 <include content="Home_Menu_List">
                     <param name="onlist">$PARAM[onlist]</param>
