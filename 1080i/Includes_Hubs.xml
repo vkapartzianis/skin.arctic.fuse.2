@@ -656,6 +656,57 @@
         </control>
     </include>
 
+    <include name="Hub_Categories_HitButton">
+        <control type="button">
+            <include content="Hub_Categories_HitButton_ExpandedWidth" condition="Skin.String(Hubs.MenuStyle,Both) + Control.HasFocus(300) + !Window.IsActive(1163) + Integer.IsEqual(Container(300).CurrentItem,Container(300).ListItemAbsolute($PARAM[pos]).CurrentItem)" />
+            <include content="Hub_Categories_HitButton_NormalWidth" condition="!Skin.String(Hubs.MenuStyle,Both) | !Control.HasFocus(300) | Window.IsActive(1163) | !Integer.IsEqual(Container(300).CurrentItem,Container(300).ListItemAbsolute($PARAM[pos]).CurrentItem)" />
+            <height>80</height>
+            <texturenofocus />
+            <texturefocus />
+            <font />
+            <onfocus>SetFocus(300,$PARAM[pos],absolute)</onfocus>
+            <onclick>SetFocus(300,$PARAM[pos],absolute)</onclick>
+            <visible>!String.IsEmpty(Container(300).ListItemAbsolute($PARAM[pos]).CurrentItem)</visible>
+        </control>
+    </include>
+
+    <include name="Hub_Categories_HitButton_NormalWidth">
+        <width>100</width>
+    </include>
+
+    <include name="Hub_Categories_HitButton_ExpandedWidth">
+        <width>300</width>
+    </include>
+
+    <include name="Hub_Categories_HitButtons">
+        <control type="grouplist">
+            <left>$PARAM[left]</left>
+            <centertop>100</centertop>
+            <height>80</height>
+            <width>$PARAM[width]</width>
+            <orientation>horizontal</orientation>
+            <itemgap>0</itemgap>
+            <include content="Hub_Categories_HitButton">
+                <param name="pos">0</param>
+            </include>
+            <include content="Hub_Categories_HitButton">
+                <param name="pos">1</param>
+            </include>
+            <include content="Hub_Categories_HitButton">
+                <param name="pos">2</param>
+            </include>
+            <include content="Hub_Categories_HitButton">
+                <param name="pos">3</param>
+            </include>
+            <include content="Hub_Categories_HitButton">
+                <param name="pos">4</param>
+            </include>
+            <include content="Hub_Categories_HitButton" condition="$PARAM[include_sixth]">
+                <param name="pos">5</param>
+            </include>
+        </control>
+    </include>
+
     <include name="Hub_Categories">
         <control type="group">
             <visible>!$EXP[Exp_InfoDialogs]</visible>
@@ -685,6 +736,17 @@
                     </include>
                 </control>
             </control>
+
+            <include content="Hub_Categories_HitButtons" condition="!Skin.String(Hubs.MenuStyle,Text) + !Skin.HasSetting(SideMenu.DisableSearchAndOptions) + [Skin.HasSetting(HubsMenu.EnableSearchAndOptions) | [Window.IsVisible(Home) + Integer.IsEqual(Skin.String(Hub.Home.ReplaceWindow),$PARAM[window_id])]]">
+                <param name="left">160</param>
+                <param name="width">500</param>
+                <param name="include_sixth">Skin.String(Hubs.MenuStyle,Both)</param>
+            </include>
+            <include content="Hub_Categories_HitButtons" condition="!Skin.String(Hubs.MenuStyle,Text) + ![!Skin.HasSetting(SideMenu.DisableSearchAndOptions) + [Skin.HasSetting(HubsMenu.EnableSearchAndOptions) | [Window.IsVisible(Home) + Integer.IsEqual(Skin.String(Hub.Home.ReplaceWindow),$PARAM[window_id])]]]">
+                <param name="left">60</param>
+                <param name="width">500</param>
+                <param name="include_sixth">Skin.String(Hubs.MenuStyle,Both)</param>
+            </include>
 
             <include content="Hub_Categories_Search" condition="!Skin.HasSetting(SideMenu.DisableSearchAndOptions) + [Skin.HasSetting(HubsMenu.EnableSearchAndOptions) | [Window.IsVisible(Home) + Integer.IsEqual(Skin.String(Hub.Home.ReplaceWindow),$PARAM[window_id])]]">
                 <param name="window_id">$PARAM[window_id]</param>
