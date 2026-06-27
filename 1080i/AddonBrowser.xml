@@ -3,7 +3,8 @@
     <defaultcontrol always="true">6000</defaultcontrol>
     <views>50</views>
     <menucontrol>30000</menucontrol>
-    <onunhandledback>ActivateWindow(home)</onunhandledback>
+    <onunhandledback condition="!String.IsEqual(Container.FolderPath,addons://)">SetFocus(6000,0,absolute)</onunhandledback>
+    <onunhandledback condition="!String.IsEqual(Container.FolderPath,addons://)">Container.Update(addons://,replace)</onunhandledback>
     <include>Action_Blur_Onload</include>
     <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://)">SetFocus(6000,0,absolute)</onload>
     <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://user/)">SetFocus(6000,1,absolute)</onload>
@@ -35,8 +36,6 @@
                         <param name="textcolor">main_fg</param>
                         <focusposition>0</focusposition>
                         <movement>6</movement>
-                        <onback>Action(PreviousMenu)</onback>
-
                         <onright condition="String.IsEmpty(Container(6000).ListItem.Property(folderpath))">Container.Update($INFO[Container(6000).ListItem.FolderPath],replace)</onright>
                         <onright condition="!String.IsEmpty(Container(6000).ListItem.Property(folderpath))">Container.Update($INFO[Container(6000).ListItem.Property(folderpath)],replace)</onright>
                         <onright>50</onright>
@@ -94,7 +93,6 @@
                         <param name="variation">true</param>
                         <param name="icon">$VAR[Image_AddonStatus]</param>
                         <param name="textcolor">main_fg</param>
-                        <onback>Action(PreviousMenu)</onback>
                         <onleft>6000</onleft>
                         <onright>60</onright>
                         
