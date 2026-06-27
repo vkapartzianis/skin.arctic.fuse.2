@@ -4,13 +4,15 @@
     <views>50</views>
     <menucontrol>30000</menucontrol>
     <include>Action_Blur_Onload</include>
-    <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch))">SetFocus(6000,0,absolute)</onload>
-    <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://recently_updated/)">SetFocus(6000,1,absolute)</onload>
-    <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://dependencies/) + Integer.IsEqual(Container(6301).NumItems,0)">SetFocus(6000,2,absolute)</onload>
-    <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://dependencies/) + !Integer.IsEqual(Container(6301).NumItems,0)">SetFocus(6000,3,absolute)</onload>
-    <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://running/) + Integer.IsEqual(Container(6301).NumItems,0)">SetFocus(6000,3,absolute)</onload>
-    <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://running/) + !Integer.IsEqual(Container(6301).NumItems,0)">SetFocus(6000,4,absolute)</onload>
-    <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + [String.IsEqual(Container.FolderPath,addons://recently_updated/) | String.IsEqual(Container.FolderPath,addons://dependencies/) | String.IsEqual(Container.FolderPath,addons://running/)]">SetFocus(50,0,absolute)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://)">SetFocus(6000,0,absolute)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://user/)">SetFocus(6000,1,absolute)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://recently_updated/)">SetFocus(6000,2,absolute)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://outdated/) + !Integer.IsEqual(Container(6301).NumItems,0)">SetFocus(6000,3,absolute)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://dependencies/) + Integer.IsEqual(Container(6301).NumItems,0)">SetFocus(6000,3,absolute)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://dependencies/) + !Integer.IsEqual(Container(6301).NumItems,0)">SetFocus(6000,4,absolute)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://running/) + Integer.IsEqual(Container(6301).NumItems,0)">SetFocus(6000,4,absolute)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://running/) + !Integer.IsEqual(Container(6301).NumItems,0)">SetFocus(6000,5,absolute)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + [String.IsEqual(Container.FolderPath,addons://recently_updated/) | String.IsEqual(Container.FolderPath,addons://outdated/) | String.IsEqual(Container.FolderPath,addons://dependencies/) | String.IsEqual(Container.FolderPath,addons://running/)]">SetFocus(50,0,absolute)</onload>
     <onload condition="Integer.IsEqual(Window(Home).Property(SettingsChanger.Switch),50)">SetFocus(6000,0,absolute)</onload>
     <onload condition="!String.IsEmpty(Window(Home).Property(SettingsChanger.Switch))">SetFocus($INFO[Window(Home).Property(SettingsChanger.Switch)])</onload>
     <onload>ClearProperty(SettingsChanger.Switch,Home)</onload>
@@ -30,7 +32,7 @@
                         <param name="width">settings_category_w</param>
                         <param name="control">fixedlist</param>
                         <param name="textcolor">main_fg</param>
-                        <focusposition>4</focusposition>
+                        <focusposition>0</focusposition>
                         <movement>4</movement>
                         <onback>Action(PreviousMenu)</onback>
 
@@ -43,6 +45,11 @@
                         <top>180</top>
                         <bottom>180</bottom>
                         <content>
+                            <item>
+                                <label>$LOCALIZE[10000]</label>
+                                <property name="folderpath">addons://</property>
+                                <icon>DefaultAddon.png</icon>
+                            </item>
                             <item>
                                 <label>$LOCALIZE[24998]</label>
                                 <property name="folderpath">addons://user/</property>
@@ -100,7 +107,7 @@
                         <param name="variation">true</param>
                         <param name="icon">$VAR[Image_AddonStatus]</param>
                         <param name="textcolor">main_fg</param>
-                        <onback condition="String.IsEqual(Container.FolderPath,Container(6000).ListItem.FolderPath) | String.IsEqual(Container.FolderPath,addons://user/) | String.IsEqual(Container.FolderPath,addons://)">6000</onback>
+                        <onback>Action(PreviousMenu)</onback>
                         <onleft>6000</onleft>
                         <onright>60</onright>
                         
