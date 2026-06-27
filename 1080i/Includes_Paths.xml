@@ -115,6 +115,18 @@
         <value>random</value>
     </variable>
 
+    <variable name="Path_Spotlight_Fallback_Limit">
+        <value condition="$EXP[Exp_HomeHub_IsVisible] + !String.IsEmpty(Skin.String(Hub.Home.Spotlight.Limit))">$INFO[Skin.String(Hub.Home.Spotlight.Limit)]</value>
+        <value condition="$EXP[Exp_1101Hub_IsVisible] + !String.IsEmpty(Skin.String(Hub.1101.Spotlight.Limit))">$INFO[Skin.String(Hub.1101.Spotlight.Limit)]</value>
+        <value condition="$EXP[Exp_1102Hub_IsVisible] + !String.IsEmpty(Skin.String(Hub.1102.Spotlight.Limit))">$INFO[Skin.String(Hub.1102.Spotlight.Limit)]</value>
+        <value condition="$EXP[Exp_1103Hub_IsVisible] + !String.IsEmpty(Skin.String(Hub.1103.Spotlight.Limit))">$INFO[Skin.String(Hub.1103.Spotlight.Limit)]</value>
+        <value condition="$EXP[Exp_1104Hub_IsVisible] + !String.IsEmpty(Skin.String(Hub.1104.Spotlight.Limit))">$INFO[Skin.String(Hub.1104.Spotlight.Limit)]</value>
+        <value condition="$EXP[Exp_1106Hub_IsVisible] + !String.IsEmpty(Skin.String(Hub.1106.Spotlight.Limit))">$INFO[Skin.String(Hub.1106.Spotlight.Limit)]</value>
+        <value condition="$EXP[Exp_1107Hub_IsVisible] + !String.IsEmpty(Skin.String(Hub.1107.Spotlight.Limit))">$INFO[Skin.String(Hub.1107.Spotlight.Limit)]</value>
+        <value condition="$EXP[Exp_1108Hub_IsVisible] + !String.IsEmpty(Skin.String(Hub.1108.Spotlight.Limit))">$INFO[Skin.String(Hub.1108.Spotlight.Limit)]</value>
+        <value condition="$EXP[Exp_1109Hub_IsVisible] + !String.IsEmpty(Skin.String(Hub.1109.Spotlight.Limit))">$INFO[Skin.String(Hub.1109.Spotlight.Limit)]</value>
+    </variable>
+
     <variable name="Path_DiscoverWidgets_Base">
         <value>plugin://plugin.video.themoviedb.helper/?info=discover&amp;with_separator=AND&amp;with_id=True&amp;nextpage=false&amp;cacheonly=true&amp;length=1$VAR[Path_SearchTerm,&amp;with_text_query=,]$INFO[Window.Property(SearchDiscover.ProviderID),&amp;with_watch_providers=,]$INFO[Window.Property(SearchDiscover.CastID),&amp;with_cast=,]$INFO[Window.Property(SearchDiscover.CrewID),&amp;with_crew=,]$INFO[Window.Property(SearchDiscover.PeopleID),&amp;with_people=,]$INFO[Window.Property(SearchDiscover.KeywordID),&amp;with_keywords=,]$VAR[Path_DiscoverWidgets_VoteLow,&amp;vote_count.gte=,]$VAR[Path_DiscoverWidgets_VoteHigh,&amp;vote_count.lte=,]$VAR[Path_DiscoverWidgets_RatingLow,&amp;vote_average.gte=,]$VAR[Path_DiscoverWidgets_RatingHigh,&amp;vote_average.lte=,]</value>
     </variable>

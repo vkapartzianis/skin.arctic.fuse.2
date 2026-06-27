@@ -130,6 +130,19 @@
                             <visible>[String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=sidemenu) + !Skin.HasSetting(Hub.Home.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1101menu) + !Skin.HasSetting(Hub.1101.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1102menu) + !Skin.HasSetting(Hub.1102.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1103menu) + !Skin.HasSetting(Hub.1103.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1104menu) + !Skin.HasSetting(Hub.1104.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1105menu) + !Skin.HasSetting(Hub.1105.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1106menu) + !Skin.HasSetting(Hub.1106.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1107menu) + !Skin.HasSetting(Hub.1107.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1108menu) + !Skin.HasSetting(Hub.1108.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1109menu) + !Skin.HasSetting(Hub.1109.DisableSpotlight)]</visible>
                             <onback>23999</onback>
                         </include>
+                        <!-- Spotlight: Hubs: Limit -->
+                        <include content="Settings_Button">
+                            <param name="dialog">true</param>
+                            <param name="id">33004</param>
+                            <param name="control">button</param>
+                            <label> -- $LOCALIZE[31188]</label>
+                            <label2>$VAR[Label_Shortcut_HubSpotlight_Limit]</label2>
+                            <onclick>Skin.SetNumeric(Hub.$INFO[Container(30000).ListItem.Property(hub_prefix)].Spotlight.Limit)</onclick>
+                            <visible>!String.IsEmpty(Control.GetLabel(33001))</visible>
+                            <visible>String.IsEqual(Window.Property(Options.Mode),Categories.Spotlight)</visible>
+                            <visible>[String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=sidemenu) + !Skin.HasSetting(Hub.Home.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1101menu) + !Skin.HasSetting(Hub.1101.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1102menu) + !Skin.HasSetting(Hub.1102.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1103menu) + !Skin.HasSetting(Hub.1103.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1104menu) + !Skin.HasSetting(Hub.1104.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1105menu) + !Skin.HasSetting(Hub.1105.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1106menu) + !Skin.HasSetting(Hub.1106.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1107menu) + !Skin.HasSetting(Hub.1107.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1108menu) + !Skin.HasSetting(Hub.1108.DisableSpotlight)] | [String.IsEqual(Container(30000).ListItem.Property(categories_menu),menu=1109menu) + !Skin.HasSetting(Hub.1109.DisableSpotlight)]</visible>
+                            <onback>23999</onback>
+                        </include>
 
 
                         <!-- Spotlight: Hubs: Sort By -->
