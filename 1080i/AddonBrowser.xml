@@ -3,6 +3,7 @@
     <defaultcontrol always="true">6000</defaultcontrol>
     <views>50</views>
     <menucontrol>30000</menucontrol>
+    <onunhandledback>ActivateWindow(home)</onunhandledback>
     <include>Action_Blur_Onload</include>
     <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://)">SetFocus(6000,0,absolute)</onload>
     <onload condition="String.IsEmpty(Window(Home).Property(SettingsChanger.Switch)) + String.IsEqual(Container.FolderPath,addons://user/)">SetFocus(6000,1,absolute)</onload>
@@ -39,7 +40,8 @@
                         <onright condition="String.IsEmpty(Container(6000).ListItem.Property(folderpath))">Container.Update($INFO[Container(6000).ListItem.FolderPath],replace)</onright>
                         <onright condition="!String.IsEmpty(Container(6000).ListItem.Property(folderpath))">Container.Update($INFO[Container(6000).ListItem.Property(folderpath)],replace)</onright>
                         <onright>50</onright>
-                        <onclick condition="String.IsEmpty(Container(6000).ListItem.Property(skipupdate))">SendClick(9)</onclick>
+                        <onclick condition="String.IsEmpty(Container(6000).ListItem.Property(folderpath))">Container.Update($INFO[Container(6000).ListItem.FolderPath],replace)</onclick>
+                        <onclick condition="!String.IsEmpty(Container(6000).ListItem.Property(folderpath))">Container.Update($INFO[Container(6000).ListItem.Property(folderpath)],replace)</onclick>
                         <left>40</left>
                         <right>-100</right>
                         <top>180</top>
