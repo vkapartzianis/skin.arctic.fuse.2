@@ -14,6 +14,7 @@
 
     <include name="Spotlight_Info">
         <include content="Hub_Widgets_Infopanel">
+            <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),301) + $EXP[Exp_Hubs_Spotlight_HasCurrentItem]</param>
             <!-- <animation effect="slide" start="0" end="0,140" time="600" tween="back" easing="out" reversible="false" condition="!$EXP[Exp_Hubs_Spotlight_ShowButtons] + $EXP[Exp_Hubs_Spotlight_SlideDown]">Conditional</animation>
             <animation effect="slide" end="0" start="0,140" time="600" tween="back" easing="out" reversible="false" condition="![!$EXP[Exp_Hubs_Spotlight_ShowButtons] + $EXP[Exp_Hubs_Spotlight_SlideDown]]">Conditional</animation> -->
             <animation effect="slide" start="0" end="0,140" time="400" tween="quadratic" reversible="false" condition="!$EXP[Exp_Hubs_Spotlight_ShowButtons] + $EXP[Exp_Hubs_Spotlight_SlideDown]">Conditional</animation>
@@ -23,7 +24,7 @@
                 <param name="plotlabel">$VAR[Label_Plot_C301]</param>
                 <param name="container">Container(301).</param>
                 <param name="grouplistid">99952</param>
-                <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),301)</param>
+                <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),301) + $EXP[Exp_Hubs_Spotlight_HasCurrentItem]</param>
                 <param name="align">bottom</param>
                 <param name="titleautoheight">true</param>
                 <param name="adapative">true</param>
@@ -146,7 +147,7 @@
                         <param name="id">311</param>
                         <param name="groupid">321</param>
                         <param name="width">280</param>
-                        <param name="name">$VAR[Label_Title_C301]</param>
+                        <param name="name">$VAR[Label_FullscreenWidget_ButtonName]</param>
                         <param name="role">$VAR[Label_FullscreenWidget_PlayButton]</param>
                         <param name="icon">$VAR[Image_FullscreenWidget_PlayButton]</param>
 
@@ -167,15 +168,15 @@
                         <param name="id">312</param>
                         <param name="groupid">322</param>
                         <param name="width">360</param>
-                        <param name="name">$VAR[Label_Title_C301]</param>
+                        <param name="name">$VAR[Label_FullscreenWidget_ButtonName]</param>
                         <param name="role">$VAR[Label_FullscreenWidget_InfoButton]</param>
                         <param name="icon">$VAR[Image_FullscreenWidget_InfoButton]</param>
 
-                        <onclick condition="$EXP[Exp_Hubs_Spotlight_HasItems]">SetFocus(301)</onclick>
-                        <onclick condition="$EXP[Exp_Hubs_Spotlight_HasItems]">$VAR[Action_FullscreenWidget_InfoButton]</onclick>
-                        <onclick condition="$EXP[Exp_Hubs_Spotlight_HasItems]">SetFocus(312)</onclick>
-                        <onclick condition="!$EXP[Exp_Hubs_Spotlight_HasItems] + Weather.IsFetched">ActivateWindow(1161)</onclick>
-                        <onclick condition="!$EXP[Exp_Hubs_Spotlight_HasItems] + !Weather.IsFetched">ActivateWindow(systeminfo)</onclick>
+                        <onclick condition="$EXP[Exp_Hubs_Spotlight_HasCurrentItem]">SetFocus(301)</onclick>
+                        <onclick condition="$EXP[Exp_Hubs_Spotlight_HasCurrentItem]">$VAR[Action_FullscreenWidget_InfoButton]</onclick>
+                        <onclick condition="$EXP[Exp_Hubs_Spotlight_HasCurrentItem]">SetFocus(312)</onclick>
+                        <onclick condition="!$EXP[Exp_Hubs_Spotlight_HasCurrentItem] + Weather.IsFetched">ActivateWindow(1161)</onclick>
+                        <onclick condition="!$EXP[Exp_Hubs_Spotlight_HasCurrentItem] + !Weather.IsFetched">ActivateWindow(systeminfo)</onclick>
                         <include content="Spotlight_Main_Button_Standard">
                             <param name="id">312</param>
                             <param name="window_id">$PARAM[window_id]</param>

@@ -363,8 +363,8 @@
     </variable>
 
     <variable name="Image_FullscreenWidget_PlayButton">
-        <!-- <value condition="!$EXP[Exp_Hubs_Spotlight_HasItems]">special://skin/extras/icons/fullscreen.png</value> -->
-        <value condition="Container(301).ListItem.IsFolder">special://skin/extras/icons/folder.png</value>
+        <value condition="!$EXP[Exp_Hubs_Spotlight_HasCurrentItem]">special://skin/extras/icons/fullscreen.png</value>
+        <value condition="$EXP[Exp_Hubs_Spotlight_HasCurrentItem] + Container(301).ListItem.IsFolder">special://skin/extras/icons/folder.png</value>
         <value>special://skin/extras/icons/play2.png</value>
     </variable>
 
@@ -380,7 +380,7 @@
     </variable>
 
     <variable name="Image_FullscreenWidget_InfoButton">
-        <value condition="Skin.HasSetting(Spotlight.UseMenuButton) + $EXP[Exp_Hubs_Spotlight_HasItems]">special://skin/extras/icons/indent.png</value>
+        <value condition="Skin.HasSetting(Spotlight.UseMenuButton) + $EXP[Exp_Hubs_Spotlight_HasCurrentItem]">special://skin/extras/icons/indent.png</value>
         <value>special://skin/extras/icons/info2.png</value>
     </variable>
 
