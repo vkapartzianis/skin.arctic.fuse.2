@@ -33,7 +33,7 @@
                         <param name="control">fixedlist</param>
                         <param name="textcolor">main_fg</param>
                         <focusposition>0</focusposition>
-                        <movement>4</movement>
+                        <movement>6</movement>
                         <onback>Action(PreviousMenu)</onback>
 
                         <onright condition="String.IsEmpty(Container(6000).ListItem.Property(folderpath))">Container.Update($INFO[Container(6000).ListItem.FolderPath],replace)</onright>
@@ -75,21 +75,6 @@
                                 <label>$LOCALIZE[23054] [LOWERCASE]$LOCALIZE[24001][/LOWERCASE]</label>
                                 <property name="folderpath">addons://running/</property>
                                 <icon>DefaultScript.png</icon>
-                            </item>
-                            <item>
-                                <label>$LOCALIZE[31375]</label>
-                                <property name="folderpath">addons://user/</property>
-                                <property name="skipupdate">true</property>
-                                <icon>DefaultAddonsZip.png</icon>
-                                <onclick>InstallFromZip</onclick>
-                            </item>
-                            <item>
-                                <label>$LOCALIZE[137]</label>
-                                <property name="folderpath">addons://user/</property>
-                                <property name="skipupdate">true</property>
-                                <icon>DefaultAddonsSearch.png</icon>
-                                <onclick>SetFocus(50)</onclick>
-                                <onclick>Container.Update(addons://search/,replace)</onclick>
                             </item>
                         </content>
                         <content sortby="label">addons://repos/</content>
