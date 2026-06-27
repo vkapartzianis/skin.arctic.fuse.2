@@ -60,7 +60,7 @@
                         <param name="role">$INFO[Container(11).ListItem.ChannelName]</param>
                         <param name="name">$INFO[Container(11).ListItem.ChannelNumberLabel,$LOCALIZE[19029] ,]</param>
                         <param name="text">$VAR[Label_Plot_C11]</param>
-                        <param name="fallback_icon">-</param>
+                        <param name="fallback_icon" />
                     </include>
 
                     <include content="OSD_Info_Viewline">

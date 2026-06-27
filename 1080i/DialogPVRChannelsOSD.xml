@@ -56,7 +56,7 @@
                 <param name="role">$INFO[Container(11).ListItem.ChannelName]</param>
                 <param name="name">$INFO[VideoPlayer.ChannelGroup,$LOCALIZE[19141]: ,]</param>
                 <param name="text">$VAR[Label_Plot_C11]</param>
-                <param name="fallback_icon">-</param>
+                <param name="fallback_icon" />
                 <param name="textcolor_top">panel_fg_90</param>
                 <param name="textcolor_sub">panel_fg_70</param>
                 <param name="visible">!Control.HasFocus(4000)</param>
@@ -66,7 +66,7 @@
                 <param name="role">$INFO[Container(11).ListItem.ChannelName]</param>
                 <param name="name">$INFO[VideoPlayer.ChannelGroup,$LOCALIZE[19141]: ,]</param>
                 <param name="text">$VAR[Label_Plot_C11]</param>
-                <param name="fallback_icon">-</param>
+                <param name="fallback_icon" />
                 <param name="textcolor_top">$VAR[ColorSelected]</param>
                 <param name="textcolor_sub">$VAR[ColorSelected]</param>
                 <param name="visible">Control.HasFocus(4000)</param>

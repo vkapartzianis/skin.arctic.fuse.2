@@ -1136,7 +1136,7 @@
                         <include content="Object_InfoCircle" condition="!$PARAM[selected]">
                             <param name="icon">$VAR[Image_ResourceIcon]</param>
                             <param name="bordersize">11</param>
-                            <param name="diffuse">-</param>
+                            <param name="diffuse" />
                             <param name="fallback">folder.png</param>
                             <param name="role">$VAR[Label_MediaList_Title]</param>
                             <param name="name">$VAR[Label_VideoInfo_DetailsItem]</param>
@@ -1156,7 +1156,7 @@
                         <include content="Object_InfoCircle" condition="$PARAM[selected]">
                             <param name="icon">$VAR[Image_ResourceIcon]</param>
                             <param name="bordersize">11</param>
-                            <param name="diffuse">-</param>
+                            <param name="diffuse" />
                             <param name="fallback">folder.png</param>
                             <param name="role">$VAR[Label_MediaList_Title]</param>
                             <param name="name">$VAR[Label_VideoInfo_DetailsItem]</param>
@@ -2408,7 +2408,7 @@
                     <right>40</right>
                     <control type="group">
                         <include content="Object_InfoCircle" condition="!$PARAM[selected]">
-                            <param name="icon">-</param>
+                            <param name="icon" />
                             <param name="name">$INFO[$PARAM[listitem].Property(role),[COLOR=main_fg_30]$LOCALIZE[20347][/COLOR] ,]</param>
                             <param name="role">$INFO[$PARAM[listitem].Year,[LIGHT], [COLOR=main_fg_30]—[/COLOR][/LIGHT] ]$INFO[$PARAM[listitem].Label]</param>
                             <include content="Object_InfoCircle_Image">
@@ -2417,7 +2417,7 @@
                             </include>
                         </include>
                         <include content="Object_InfoCircle" condition="$PARAM[selected]">
-                            <param name="icon">-</param>
+                            <param name="icon" />
                             <param name="name">$INFO[$PARAM[listitem].Property(role),[COLOR=main_fg_30]$LOCALIZE[20347][/COLOR] ,]</param>
                             <param name="role">$INFO[$PARAM[listitem].Year,[LIGHT], [COLOR=main_fg_30]—[/COLOR][/LIGHT] ]$INFO[$PARAM[listitem].Label]</param>
                             <param name="textcolor_top">$VAR[ColorSelected]</param>

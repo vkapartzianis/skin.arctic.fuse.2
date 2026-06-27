@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <include name="skinvariables-options-tray-onload">
+        <definition />
+    </include>
+
+    <include name="skinvariables-homemenu-widgets-listcheck">
+        <definition />
+    </include>
+
+    <include name="skinvariables-homemenu-widgets">
+        <definition />
+    </include>
+
+    <include name="skinvariables-sidemenu-staticitems">
+        <definition />
+    </include>
+
+</includes>
