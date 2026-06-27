@@ -10,14 +10,24 @@
                 "path": "special://skin/extras/playlists/NewMovies.xsp",
                 "widget_style": "Landscape",
                 "target": "videos",
-                "guid": "guid-f5d496d2"
+                "guid": "guid-f5d496d2",
+                "widget_limit": "50"
             },
             {
                 "label": "$LOCALIZE[31400]",
                 "path": "special://skin/extras/playlists/NewEpisodes.xsp",
                 "widget_style": "Landscape",
                 "target": "videos",
-                "guid": "guid-64e9b01c"
+                "guid": "guid-64e9b01c",
+                "widget_limit": "50"
+            },
+            {
+                "label": "$LOCALIZE[31399]",
+                "path": "special://skin/extras/playlists/NewShows.xsp",
+                "icon": "DefaultRecentlyAddedMovies.png",
+                "target": "videos",
+                "guid": "guid-81926c99",
+                "widget_limit": "50"
             }
         ],
         "guid": "guid-19ada9cd"
@@ -33,35 +43,43 @@
                 "path": "special://skin/extras/playlists/InProgressMovies.xsp",
                 "widget_style": "Landscape",
                 "target": "videos",
-                "guid": "guid-5914ec8b"
-            },
-            {
-                "label": "$LOCALIZE[31406]",
-                "path": "special://skin/extras/playlists/TopRatedMovies.xsp",
-                "widget_style": "Landscape",
-                "target": "videos",
-                "guid": "guid-8700db05"
+                "guid": "guid-5914ec8b",
+                "widget_limit": "50"
             },
             {
                 "label": "$LOCALIZE[31396]",
-                "path": "special://skin/extras/playlists/RecentMovies.xsp",
-                "widget_style": "Landscape",
+                "path": "library://video/movies/titles.xml/",
+                "icon": "special://skin/extras/icons/film.png",
                 "target": "videos",
-                "guid": "guid-669d551c"
+                "guid": "guid-ccda1f91",
+                "widget_sortby": "year",
+                "widget_sortorder": "True",
+                "widget_limit": "50"
             },
             {
                 "label": "$LOCALIZE[31408]",
                 "path": "special://skin/extras/playlists/RandomMovies.xsp",
                 "widget_style": "Landscape",
                 "target": "videos",
-                "guid": "guid-c4fdb8e7"
+                "guid": "guid-c4fdb8e7",
+                "disabled": "True",
+                "widget_limit": "50"
+            },
+            {
+                "label": "$LOCALIZE[31598]",
+                "path": "plugin://plugin.video.themoviedb.helper/?info=trending_week&tmdb_type=movie&reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&widget=true",
+                "icon": "special://home/addons/plugin.video.themoviedb.helper/resources/icons/themoviedb/upcoming.png",
+                "target": "videos",
+                "guid": "guid-581a5319",
+                "disabled": ""
             }
         ],
         "guid": "guid-488ad32f",
         "spotlight_label": "Random Movies",
         "spotlight_path": "special://skin/extras/playlists/RandomMovies.xsp",
         "spotlight_icon": "special://skin/extras/icons/list-ol.png",
-        "spotlight_target": "videos"
+        "spotlight_target": "videos",
+        "spotlight_limit": "20"
     },
     {
         "label": "$LOCALIZE[20343]",
@@ -74,35 +92,45 @@
                 "path": "library://video/tvshows/inprogressshows.xml",
                 "widget_style": "Landscape",
                 "target": "videos",
-                "guid": "guid-dd2d29ef"
-            },
-            {
-                "label": "$LOCALIZE[31407]",
-                "path": "special://skin/extras/playlists/TopRatedTvShows.xsp",
-                "widget_style": "Landscape",
-                "target": "videos",
-                "guid": "guid-1aae7d6c"
+                "guid": "guid-dd2d29ef",
+                "widget_sortby": "lastplayed",
+                "widget_sortorder": "True",
+                "widget_limit": "50"
             },
             {
                 "label": "$LOCALIZE[31397]",
-                "path": "special://skin/extras/playlists/RecentTvShows.xsp",
-                "widget_style": "Landscape",
+                "path": "library://video/tvshows/titles.xml/",
+                "icon": "special://skin/extras/icons/tv.png",
                 "target": "videos",
-                "guid": "guid-c421fc46"
+                "guid": "guid-8e9b4ed9",
+                "widget_sortby": "year",
+                "widget_sortorder": "True",
+                "widget_limit": "50"
             },
             {
                 "label": "$LOCALIZE[31409]",
                 "path": "special://skin/extras/playlists/RandomTvShows.xsp",
                 "widget_style": "Landscape",
                 "target": "videos",
-                "guid": "guid-db154daf"
+                "guid": "guid-db154daf",
+                "disabled": "True",
+                "widget_limit": "50"
+            },
+            {
+                "label": "$LOCALIZE[31599]",
+                "path": "plugin://plugin.video.themoviedb.helper/?info=trending_week&tmdb_type=tv&reload=$INFO[Window(Home).Property(TMDbHelper.Widgets.Reload)]&widget=true",
+                "icon": "special://home/addons/plugin.video.themoviedb.helper/resources/icons/themoviedb/upcoming.png",
+                "target": "videos",
+                "guid": "guid-21ef0b4c",
+                "disabled": ""
             }
         ],
         "guid": "guid-0a9df9a5",
         "spotlight_label": "Random Tv Shows",
         "spotlight_path": "special://skin/extras/playlists/RandomTvShows.xsp",
         "spotlight_icon": "DefaultTVShows.png",
-        "spotlight_target": "videos"
+        "spotlight_target": "videos",
+        "spotlight_limit": "20"
     },
     {
         "label": "$LOCALIZE[249]",
@@ -143,7 +171,9 @@
         "spotlight_label": "Random Artists",
         "spotlight_path": "special://skin/extras/playlists/RandomArtists.xsp",
         "spotlight_icon": "DefaultMusicArtists.png",
-        "spotlight_target": "music"
+        "spotlight_target": "music",
+        "disabled": "",
+        "spotlight_limit": "20"
     },
     {
         "label": "$LOCALIZE[31085]",
@@ -170,6 +200,8 @@
         "spotlight_label": "Last Played Channels",
         "spotlight_path": "pvr://channels/tv/*?view=lastplayed",
         "spotlight_icon": "DefaultAddonPVRClient.png",
-        "spotlight_target": ""
+        "spotlight_target": "",
+        "disabled": "",
+        "spotlight_limit": "20"
     }
 ]

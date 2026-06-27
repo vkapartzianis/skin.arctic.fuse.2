@@ -16,6 +16,17 @@ DEST_BASE = "special://profile/addon_data/script.skinvariables/nodes"
 SOURCE_BASE = "special://skin/shortcuts/prebuilt"
 HOME_WINDOW = 10000
 PRESERVE_WIDGETS_CHOICE = "existing-widgets"
+SHORTCUT_HUBS = {
+    "sidemenu": "Home",
+    "1101menu": "1101",
+    "1102menu": "1102",
+    "1103menu": "1103",
+    "1104menu": "1104",
+    "1106menu": "1106",
+    "1107menu": "1107",
+    "1108menu": "1108",
+    "1109menu": "1109",
+}
 
 THEMES = {
     "bright": {
@@ -147,6 +158,33 @@ def confirm_overwrite(skin, source_dir):
     )
 
 
+def shortcut_menu_from_filename(filename):
+    prefix = "skinvariables-shortcut-"
+    suffix = ".json"
+    if not filename.startswith(prefix) or not filename.endswith(suffix):
+        return ""
+    return filename[len(prefix):-len(suffix)]
+
+
+def shortcut_spotlight_limit(items):
+    if not isinstance(items, list):
+        return ""
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        limit = item.get("spotlight_limit")
+        if limit:
+            return limit
+    return ""
+
+
+def apply_global_spotlight_limit(filename, items):
+    hub = SHORTCUT_HUBS.get(shortcut_menu_from_filename(filename))
+    limit = shortcut_spotlight_limit(items)
+    if hub and limit:
+        skin_set_string(f"Hub.{hub}.Spotlight.Limit", limit)
+
+
 def install_prebuilt(choice, skin):
     source_dir = f"{SOURCE_BASE}/{choice}/"
     dest_dir = f"{DEST_BASE}/{skin}/"
@@ -174,6 +212,7 @@ def install_prebuilt(choice, skin):
         meta = json.loads(content)
         window.setProperty(f"{BASE_PROPERTY}.{skin}-{filename}", json.dumps(meta))
         write_text(dest, json.dumps(meta, indent=4))
+        apply_global_spotlight_limit(filename, meta)
 
     window.setProperty(f"{BASE_PROPERTY}.Reload", str(time.time()))
     return True

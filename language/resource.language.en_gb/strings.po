@@ -1887,7 +1887,7 @@ msgid "Recent Movies"
 msgstr ""
 
 msgctxt "#31397"
-msgid "Recent Tv Shows"
+msgid "Recent TV Shows"
 msgstr ""
 
 msgctxt "#31398"
@@ -2867,4 +2867,14 @@ msgstr ""
 #: /1080i/Includes_Labels.xml
 msgctxt "#31597"
 msgid "Confirmation"
+msgstr ""
+
+#: /shortcuts/prebuilt/library-basic/skinvariables-shortcut-sidemenu.json
+msgctxt "#31598"
+msgid "Trending Movies"
+msgstr ""
+
+#: /shortcuts/prebuilt/library-basic/skinvariables-shortcut-sidemenu.json
+msgctxt "#31599"
+msgid "Trending TV Shows"
 msgstr ""
