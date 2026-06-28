@@ -61,7 +61,8 @@
         "spotlight_label": "Random Movies",
         "spotlight_path": "special://skin/extras/playlists/RandomMovies.xsp",
         "spotlight_icon": "special://skin/extras/icons/list-ol.png",
-        "spotlight_target": "videos"
+        "spotlight_target": "videos",
+        "spotlight_limit": "20"
     },
     {
         "label": "$LOCALIZE[20343]",
@@ -102,7 +103,8 @@
         "spotlight_label": "Random Tv Shows",
         "spotlight_path": "special://skin/extras/playlists/RandomTvShows.xsp",
         "spotlight_icon": "DefaultTVShows.png",
-        "spotlight_target": "videos"
+        "spotlight_target": "videos",
+        "spotlight_limit": "20"
     },
     {
         "label": "$LOCALIZE[249]",
@@ -143,7 +145,8 @@
         "spotlight_label": "Random Artists",
         "spotlight_path": "special://skin/extras/playlists/RandomArtists.xsp",
         "spotlight_icon": "DefaultMusicArtists.png",
-        "spotlight_target": "music"
+        "spotlight_target": "music",
+        "spotlight_limit": "20"
     },
     {
         "label": "$LOCALIZE[31085]",
@@ -170,6 +173,7 @@
         "spotlight_label": "Last Played Channels",
         "spotlight_path": "pvr://channels/tv/*?view=lastplayed",
         "spotlight_icon": "DefaultAddonPVRClient.png",
-        "spotlight_target": ""
+        "spotlight_target": "",
+        "spotlight_limit": "20"
     }
 ]

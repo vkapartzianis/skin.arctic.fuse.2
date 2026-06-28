@@ -24,7 +24,8 @@
                 "guid": "guid-129dbb90"
             }
         ],
-        "guid": "guid-c8214e84"
+        "guid": "guid-c8214e84",
+        "spotlight_limit": "20"
     },
     {
         "label": "$LOCALIZE[20342]",
