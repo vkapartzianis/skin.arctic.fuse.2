@@ -180,9 +180,15 @@ def shortcut_spotlight_limit(items):
 
 def apply_global_spotlight_limit(filename, items):
     hub = SHORTCUT_HUBS.get(shortcut_menu_from_filename(filename))
+    if not hub:
+        return
+
+    setting = f"Hub.{hub}.Spotlight.Limit"
     limit = shortcut_spotlight_limit(items)
-    if hub and limit:
-        skin_set_string(f"Hub.{hub}.Spotlight.Limit", limit)
+    if limit:
+        skin_set_string(setting, limit)
+    else:
+        skin_reset(setting)
 
 
 def install_prebuilt(choice, skin):

@@ -2869,12 +2869,12 @@ msgctxt "#31597"
 msgid "Confirmation"
 msgstr ""
 
-#: /shortcuts/prebuilt/library-basic/skinvariables-shortcut-sidemenu.json
+#: /shortcuts/prebuilt/mixed-basic/skinvariables-shortcut-sidemenu.json
 msgctxt "#31598"
 msgid "Trending Movies"
 msgstr ""
 
-#: /shortcuts/prebuilt/library-basic/skinvariables-shortcut-sidemenu.json
+#: /shortcuts/prebuilt/mixed-basic/skinvariables-shortcut-sidemenu.json
 msgctxt "#31599"
 msgid "Trending TV Shows"
 msgstr ""

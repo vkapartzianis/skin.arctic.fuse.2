@@ -3336,6 +3336,13 @@
             <property name="textbox">Use widgets based on your local media library. Best if your movies, TV shows, and music are already scanned into the library.</property>
         </item>
         <item>
+            <label>Mixed</label>
+            <icon>special://skin/extras/screenshots/widgets/MixedBasic.jpg</icon>
+            <onclick>RunScript(special://skin/scripts/prebuilt_widgets.py,v=mixed-basic,skin=$VAR[Path_SkinVariables_SkinFolder],close=true)</onclick>
+            <visible>String.IsEqual(Window(Home).Property(WizardStep),Prebuilt)</visible>
+            <property name="textbox">Use a mix of local library widgets and online discovery widgets. Best if you want local content with a few trending recommendations.</property>
+        </item>
+        <item>
             <label>TMDb Helper</label>
             <icon>special://skin/extras/screenshots/widgets/TMDbBasic.jpg</icon>
             <onclick>RunScript(special://skin/scripts/prebuilt_widgets.py,v=tmdb-basic,skin=$VAR[Path_SkinVariables_SkinFolder],close=true)</onclick>
