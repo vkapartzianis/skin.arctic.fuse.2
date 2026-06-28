@@ -10,14 +10,16 @@
                 "path": "special://skin/extras/playlists/NewMovies.xsp",
                 "widget_style": "Landscape",
                 "target": "videos",
-                "guid": "guid-f5d496d2"
+                "guid": "guid-f5d496d2",
+                "widget_limit": "50"
             },
             {
                 "label": "$LOCALIZE[31400]",
                 "path": "special://skin/extras/playlists/NewEpisodes.xsp",
                 "widget_style": "Landscape",
                 "target": "videos",
-                "guid": "guid-64e9b01c"
+                "guid": "guid-64e9b01c",
+                "widget_limit": "50"
             }
         ],
         "guid": "guid-19ada9cd"
@@ -33,28 +35,32 @@
                 "path": "special://skin/extras/playlists/InProgressMovies.xsp",
                 "widget_style": "Landscape",
                 "target": "videos",
-                "guid": "guid-5914ec8b"
+                "guid": "guid-5914ec8b",
+                "widget_limit": "50"
             },
             {
                 "label": "$LOCALIZE[31406]",
                 "path": "special://skin/extras/playlists/TopRatedMovies.xsp",
                 "widget_style": "Landscape",
                 "target": "videos",
-                "guid": "guid-8700db05"
+                "guid": "guid-8700db05",
+                "widget_limit": "50"
             },
             {
                 "label": "$LOCALIZE[31396]",
                 "path": "special://skin/extras/playlists/RecentMovies.xsp",
                 "widget_style": "Landscape",
                 "target": "videos",
-                "guid": "guid-669d551c"
+                "guid": "guid-669d551c",
+                "widget_limit": "50"
             },
             {
                 "label": "$LOCALIZE[31408]",
                 "path": "special://skin/extras/playlists/RandomMovies.xsp",
                 "widget_style": "Landscape",
                 "target": "videos",
-                "guid": "guid-c4fdb8e7"
+                "guid": "guid-c4fdb8e7",
+                "widget_limit": "50"
             }
         ],
         "guid": "guid-488ad32f",
@@ -75,28 +81,32 @@
                 "path": "library://video/tvshows/inprogressshows.xml",
                 "widget_style": "Landscape",
                 "target": "videos",
-                "guid": "guid-dd2d29ef"
+                "guid": "guid-dd2d29ef",
+                "widget_limit": "50"
             },
             {
                 "label": "$LOCALIZE[31407]",
                 "path": "special://skin/extras/playlists/TopRatedTvShows.xsp",
                 "widget_style": "Landscape",
                 "target": "videos",
-                "guid": "guid-1aae7d6c"
+                "guid": "guid-1aae7d6c",
+                "widget_limit": "50"
             },
             {
                 "label": "$LOCALIZE[31397]",
                 "path": "special://skin/extras/playlists/RecentTvShows.xsp",
                 "widget_style": "Landscape",
                 "target": "videos",
-                "guid": "guid-c421fc46"
+                "guid": "guid-c421fc46",
+                "widget_limit": "50"
             },
             {
                 "label": "$LOCALIZE[31409]",
                 "path": "special://skin/extras/playlists/RandomTvShows.xsp",
                 "widget_style": "Landscape",
                 "target": "videos",
-                "guid": "guid-db154daf"
+                "guid": "guid-db154daf",
+                "widget_limit": "50"
             }
         ],
         "guid": "guid-0a9df9a5",
