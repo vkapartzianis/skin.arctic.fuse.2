@@ -117,6 +117,8 @@
                             <onclick condition="VideoPlayer.Content(livetv)">ActivateWindow(TVGuide)</onclick>
                             <onclick condition="!VideoPlayer.Content(livetv)">$VAR[Action_OSD_SkipPrev]</onclick>
                             <onup>8200</onup>
+                            <onright condition="String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Active),true)">6009</onright>
+                            <onright condition="!String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Active),true)">6003</onright>
                         </control>
                         <include content="OSD_Button_Icon_Overlay" condition="!VideoPlayer.Content(livetv)">
                             <param name="icon">$VAR[Image_OSD_SkipPrev]</param>
@@ -134,6 +136,7 @@
                         <!-- Button 3 -->
                         <control type="button" id="6003">
                             <include>Defs_OSD_Button</include>
+                            <visible>VideoPlayer.Content(livetv) | !String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Active),true)</visible>
                             <onclick condition="VideoPlayer.Content(livetv)">PVR.ToggleRecordPlayingChannel</onclick>
                             <onup>8200</onup>
                             <onfocus condition="!VideoPlayer.Content(livetv)">ActivateWindow(1143)</onfocus>
@@ -145,6 +148,7 @@
                             <param name="id">6003</param>
                             <param name="groupid">6103</param>
                             <param name="itemgap">osd_itemgap</param>
+                            <param name="visible">!String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Active),true)</param>
                         </include>
                         <include content="OSD_Button_Icon_Overlay" condition="VideoPlayer.Content(livetv)">
                             <param name="icon">special://skin/extras/icons/record-vinyl.png</param>
@@ -162,6 +166,8 @@
                             <onclick>CancelAlarm(osd_timeout,true)</onclick>
                             <onclick>NotifyAll(plugin.video.tidb.kine,SkipCurrent)</onclick>
                             <onup>8200</onup>
+                            <onleft>6002</onleft>
+                            <onright>6004</onright>
                         </control>
                         <include content="OSD_Button_Icon_Overlay">
                             <param name="icon">special://skin/extras/icons/forward-fast.png</param>
@@ -177,6 +183,8 @@
                             <onclick>CancelAlarm(osd_timeout,true)</onclick>
                             <onclick>PlayerControl(Stop)</onclick>
                             <onup>8200</onup>
+                            <onleft condition="String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Active),true)">6009</onleft>
+                            <onleft condition="!String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Active),true)">6003</onleft>
                         </control>
                         <include content="OSD_Button_Icon_Overlay">
                             <param name="icon">special://skin/extras/icons/stop.png</param>
