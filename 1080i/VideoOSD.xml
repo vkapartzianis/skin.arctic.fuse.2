@@ -6,7 +6,9 @@
     <animation effect="fade" end="0" start="100" time="300">WindowClose</animation>
     <onload>SetProperty(UID,$ESCINFO[Player.Title]$INFO[Player.Time(ss)],1146)</onload>
     <onload>SetProperty(UID,$ESCINFO[Player.Title]$INFO[Player.Time(ss)],1147)</onload>
+    <onload>SetProperty(TheIntroDB.Kine.OSDButtonSupported,true,Home)</onload>
     <onunload>Dialog.Close(1145)</onunload>
+    <onunload>ClearProperty(TheIntroDB.Kine.OSDButtonSupported,Home)</onunload>
     <controls>
 
         <control type="group">
@@ -89,6 +91,23 @@
                             <param name="groupid">6103</param>
                             <param name="itemgap">osd_itemgap</param>
                             <param name="iconoffset_condition">[PVR.IsRecordingPlayingChannel + PVR.CanRecordPlayingChannel]</param>
+                        </include>
+
+                        <!-- TheIntroDB Skip Button -->
+                        <control type="button" id="6009">
+                            <include>Defs_OSD_Button</include>
+                            <visible>String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Active),true)</visible>
+                            <label>$INFO[Window(Home).Property(TheIntroDB.Skip.Label)]</label>
+                            <onclick>CancelAlarm(osd_timeout,true)</onclick>
+                            <onclick>NotifyAll(plugin.video.tidb.kine,SkipCurrent)</onclick>
+                            <onup>8200</onup>
+                        </control>
+                        <include content="OSD_Button_Icon_Overlay">
+                            <param name="icon">special://skin/extras/icons/forward-fast.png</param>
+                            <param name="id">6009</param>
+                            <param name="groupid">6109</param>
+                            <param name="itemgap">osd_itemgap</param>
+                            <param name="visible">String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Active),true)</param>
                         </include>
 
                         <!-- Button 4 -->
