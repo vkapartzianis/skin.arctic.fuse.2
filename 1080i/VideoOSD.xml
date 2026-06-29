@@ -14,6 +14,67 @@
         <control type="group">
             <include>OSD_HideControls</include>
 
+            <control type="group">
+                <include>OSD_Info_Dimensions</include>
+                <visible>String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Active),true)</visible>
+
+                <control type="group">
+                    <left>view_pad</left>
+                    <top>-70</top>
+                    <width>view_landscape_item_w</width>
+                    <height>view_landscape_item_h</height>
+
+                    <control type="image">
+                        <width>view_landscape_item_w</width>
+                        <height>view_landscape_item_h</height>
+                        <texture border="20" colordiffuse="$VAR[ColorHighlight]">common/box.png</texture>
+                    </control>
+
+                    <control type="label">
+                        <width>view_landscape_item_w</width>
+                        <height>view_landscape_item_h</height>
+                        <label>Intro</label>
+                        <font>font_head_bold</font>
+                        <textcolor>$VAR[ColorSelected]</textcolor>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <visible>String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Type),intro)</visible>
+                    </control>
+
+                    <control type="label">
+                        <width>view_landscape_item_w</width>
+                        <height>view_landscape_item_h</height>
+                        <label>Recap</label>
+                        <font>font_head_bold</font>
+                        <textcolor>$VAR[ColorSelected]</textcolor>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <visible>String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Type),recap)</visible>
+                    </control>
+
+                    <control type="label">
+                        <width>view_landscape_item_w</width>
+                        <height>view_landscape_item_h</height>
+                        <label>Credits</label>
+                        <font>font_head_bold</font>
+                        <textcolor>$VAR[ColorSelected]</textcolor>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <visible>String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Type),credits)</visible>
+                    </control>
+
+                    <control type="label">
+                        <width>view_landscape_item_w</width>
+                        <height>view_landscape_item_h</height>
+                        <label>Preview</label>
+                        <font>font_head_bold</font>
+                        <textcolor>$VAR[ColorSelected]</textcolor>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <visible>String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Type),preview)</visible>
+                    </control>
+                </control>
+            </control>
 
             <control type="group">
                 <visible>!Window.IsActive(DialogPlayerProcessInfo.xml)</visible>
