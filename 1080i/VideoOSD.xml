@@ -73,6 +73,18 @@
                         <aligny>center</aligny>
                         <visible>String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Type),preview)</visible>
                     </control>
+
+                    <control type="label">
+                        <width>view_landscape_item_w</width>
+                        <height>44</height>
+                        <bottom>30</bottom>
+                        <label>$INFO[Window(Home).Property(TheIntroDB.Skip.RemainingLabel)]</label>
+                        <font>font_main_bold</font>
+                        <textcolor>$VAR[ColorSelected]</textcolor>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <visible>!String.IsEmpty(Window(Home).Property(TheIntroDB.Skip.RemainingLabel))</visible>
+                    </control>
                 </control>
             </control>
 
