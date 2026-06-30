@@ -1568,8 +1568,10 @@
         <param name="textcolor">dialog_fg</param>
         <param name="font">font_midi_bold</param>
         <param name="height">120</param>
+        <param name="visible">true</param>
         <definition>
             <control type="group" id="$PARAM[id]">
+                <visible>$PARAM[visible]</visible>
                 <height>$PARAM[height]</height>
                 <control type="label">
                     <label>$PARAM[label]</label>

@@ -24,66 +24,58 @@
                     <width>view_landscape_item_w</width>
                     <height>view_landscape_item_h</height>
 
-                    <control type="image">
-                        <width>view_landscape_item_w</width>
-                        <height>view_landscape_item_h</height>
-                        <texture border="20" colordiffuse="$VAR[ColorHighlight]">common/box.png</texture>
-                    </control>
+                    <include content="OSD_Dialog_Background_Blur">
+                        <param name="diffuse">diffuse/landscape_w410_h231.png</param>
+                    </include>
+                    <include>OSD_Stream_Selector_Divider</include>
+
+                    <include content="Object_MenuHeader">
+                        <param name="label">Intro</param>
+                        <param name="icon">special://skin/extras/icons/info2.png</param>
+                        <param name="height">100</param>
+                        <param name="has_icon">true</param>
+                        <param name="textcolor">dialog_fg</param>
+                        <param name="font">font_main_bold</param>
+                        <param name="visible">String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Type),intro)</param>
+                    </include>
+                    <include content="Object_MenuHeader">
+                        <param name="label">Recap</param>
+                        <param name="icon">special://skin/extras/icons/info2.png</param>
+                        <param name="height">100</param>
+                        <param name="has_icon">true</param>
+                        <param name="textcolor">dialog_fg</param>
+                        <param name="font">font_main_bold</param>
+                        <param name="visible">String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Type),recap)</param>
+                    </include>
+                    <include content="Object_MenuHeader">
+                        <param name="label">Credits</param>
+                        <param name="icon">special://skin/extras/icons/info2.png</param>
+                        <param name="height">100</param>
+                        <param name="has_icon">true</param>
+                        <param name="textcolor">dialog_fg</param>
+                        <param name="font">font_main_bold</param>
+                        <param name="visible">String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Type),credits)</param>
+                    </include>
+                    <include content="Object_MenuHeader">
+                        <param name="label">Preview</param>
+                        <param name="icon">special://skin/extras/icons/info2.png</param>
+                        <param name="height">100</param>
+                        <param name="has_icon">true</param>
+                        <param name="textcolor">dialog_fg</param>
+                        <param name="font">font_main_bold</param>
+                        <param name="visible">String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Type),preview)</param>
+                    </include>
 
                     <control type="label">
-                        <width>view_landscape_item_w</width>
-                        <height>view_landscape_item_h</height>
-                        <label>Intro</label>
-                        <font>font_head_bold</font>
-                        <textcolor>$VAR[ColorSelected]</textcolor>
-                        <align>center</align>
-                        <aligny>center</aligny>
-                        <visible>String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Type),intro)</visible>
-                    </control>
-
-                    <control type="label">
-                        <width>view_landscape_item_w</width>
-                        <height>view_landscape_item_h</height>
-                        <label>Recap</label>
-                        <font>font_head_bold</font>
-                        <textcolor>$VAR[ColorSelected]</textcolor>
-                        <align>center</align>
-                        <aligny>center</aligny>
-                        <visible>String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Type),recap)</visible>
-                    </control>
-
-                    <control type="label">
-                        <width>view_landscape_item_w</width>
-                        <height>view_landscape_item_h</height>
-                        <label>Credits</label>
-                        <font>font_head_bold</font>
-                        <textcolor>$VAR[ColorSelected]</textcolor>
-                        <align>center</align>
-                        <aligny>center</aligny>
-                        <visible>String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Type),credits)</visible>
-                    </control>
-
-                    <control type="label">
-                        <width>view_landscape_item_w</width>
-                        <height>view_landscape_item_h</height>
-                        <label>Preview</label>
-                        <font>font_head_bold</font>
-                        <textcolor>$VAR[ColorSelected]</textcolor>
-                        <align>center</align>
-                        <aligny>center</aligny>
-                        <visible>String.IsEqual(Window(Home).Property(TheIntroDB.Skip.Type),preview)</visible>
-                    </control>
-
-                    <control type="label">
-                        <width>view_landscape_item_w</width>
-                        <height>44</height>
-                        <bottom>30</bottom>
+                        <top>100</top>
+                        <bottom>40</bottom>
+                        <left>40</left>
+                        <right>40</right>
                         <label>$INFO[Window(Home).Property(TheIntroDB.Skip.RemainingLabel)]</label>
-                        <font>font_main_bold</font>
-                        <textcolor>$VAR[ColorSelected]</textcolor>
+                        <font>font_title_midi</font>
+                        <textcolor>dialog_fg_90</textcolor>
                         <align>center</align>
                         <aligny>center</aligny>
-                        <visible>!String.IsEmpty(Window(Home).Property(TheIntroDB.Skip.RemainingLabel))</visible>
                     </control>
                 </control>
             </control>
