@@ -785,12 +785,27 @@
         </control>
     </include>
 
+    <expression name="Exp_Search_Panel_Open">[!ControlGroup(5000).HasFocus() + !Control.HasFocus(330) + !Control.HasFocus(332) + !Control.HasFocus(333)]</expression>
+
     <include name="Search_Panel">
         <include content="Dialog_Dim_Overlay">
-            <param name="visible">[!ControlGroup(5000).HasFocus() + !Control.HasFocus(330) + !Control.HasFocus(332) + !Control.HasFocus(333)]</param>
+            <param name="visible">$EXP[Exp_Search_Panel_Open]</param>
         </include>
+        <!-- Catch pointer hits in the panel's gaps, including while its controls slide into place. -->
+        <control type="button" id="9091">
+            <include>Dimension_DialogSideMenu</include>
+            <visible>$EXP[Exp_Search_Panel_Open]</visible>
+            <texturefocus />
+            <texturenofocus />
+            <onclick>SetFocus(9992)</onclick>
+            <onup>9099</onup>
+            <ondown>9992</ondown>
+            <onright>9992</onright>
+            <onleft>5000</onleft>
+            <onback>5000</onback>
+        </control>
         <control type="group">
-            <visible allowhiddenfocus="true">[!ControlGroup(5000).HasFocus() + !Control.HasFocus(330) + !Control.HasFocus(332) + !Control.HasFocus(333)]</visible>
+            <visible allowhiddenfocus="true">$EXP[Exp_Search_Panel_Open]</visible>
 
             <include content="Animation_Right_Delay">
                 <!-- <param name="windowclose_condition">false</param> -->
