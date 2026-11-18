@@ -76,7 +76,7 @@
     <include name="Search_View_Selector">
         <control type="group">
             <control type="group">
-                <visible>Control.HasFocus(5099)</visible>
+                <visible>Control.IsVisible(5099)</visible>
                 <control type="group">
                     <include>Dimension_Bottombar</include>
                     <control type="group">
@@ -108,19 +108,21 @@
                 <param name="hidden_button_enabled">True</param>
                 <param name="control">list</param>
                 <onback>SetProperty(TMDbHelper.WidgetContainer,$INFO[ListItem.Property(widget_id)])</onback>
+                <onback>Control.SetHidden(5099)</onback>
                 <onback>5098</onback>
                 <onleft>SetProperty(TMDbHelper.WidgetContainer,$INFO[ListItem.Property(widget_id)])</onleft>
+                <onleft>Control.SetHidden(5099)</onleft>
                 <onleft>5098</onleft>
                 <onright>SetProperty(TMDbHelper.WidgetContainer,$INFO[ListItem.Property(widget_id)])</onright>
+                <onright>Control.SetHidden(5099)</onright>
                 <onright condition="Integer.IsEqual(Container(5000).NumItems,0)">SetFocus(5098)</onright>
                 <onright condition="!Integer.IsEqual(Container(5000).NumItems,0)">SetFocus(5000)</onright>
                 <onclick>SetProperty(TMDbHelper.WidgetContainer,$INFO[ListItem.Property(widget_id)])</onclick>
+                <onclick>Control.SetHidden(5099)</onclick>
                 <onclick>SetFocus(5098)</onclick>
-                <include content="Animation_ConditionalFade">
-                    <param name="condition">!Control.HasFocus(5099)</param>
-                </include>
 
                 <onup>SetProperty(TMDbHelper.WidgetContainer,$INFO[ListItem.Property(widget_id)])</onup>
+                <onup>Control.SetHidden(5099)</onup>
                 <onup>5098</onup>
                 <ondown>noop</ondown>
                 <left>60</left>
@@ -291,6 +293,7 @@
             <onright>5000</onright>
             <onleft>noop</onleft>
             <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
+            <ontextchange condition="Window.IsVisible(1185) + Control.IsVisible(5099)">Control.SetHidden(5099)</ontextchange>
             <!-- Dictation delivers text asynchronously while focus is on another control. -->
             <ontextchange condition="!Control.HasFocus(9099)">AlarmClock(SetUpdateSearchRows,SetProperty(UpdateSearchRows,True,Home),00:01,silent)</ontextchange>
             <ontextchange condition="!Control.HasFocus(9099)">AlarmClock(DelUpdateSearchRows,ClearProperty(UpdateSearchRows,Home),00:02,silent)</ontextchange>
@@ -658,7 +661,7 @@
             <onleft>5000</onleft>
             <onright>5000</onright>
             <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
-            <visible>!Control.HasFocus(5099)</visible>
+            <visible>!Control.IsVisible(5099)</visible>
 
             <orientation>vertical</orientation>
 
@@ -671,7 +674,7 @@
             <right>80</right>
 
             <onclick>SetFocus(9099)</onclick>
-            <onclick>RunScript(script.skinvariables,set_editcontrol=9099,window_id=1105,setfocus=9993,text=$INFO[Container(9993).ListItem.Label])</onclick>
+            <onclick>RunScript(script.skinvariables,set_editcontrol=9099,window_id=1185,setfocus=9993,text=$INFO[Container(9993).ListItem.Label])</onclick>
             <include>Search_Panel_UpdateSearchRows_Onclick</include>
 
             <itemlayout height="60">
@@ -865,7 +868,9 @@
 
                         <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
 
-                        <onclick condition="Window.IsVisible(1185)">SetFocus(5099)</onclick>
+                        <onclick condition="Window.IsVisible(1185) + Control.IsVisible(5099)">Control.SetHidden(5099)</onclick>
+                        <onclick condition="Window.IsVisible(1185) + !Control.IsVisible(5099)">Control.SetVisible(5099)</onclick>
+                        <onclick condition="Window.IsVisible(1185) + !Control.IsVisible(5099)">SetFocus(5099)</onclick>
                         <onclick condition="Window.IsVisible(1105)">RunPlugin(plugin://plugin.video.themoviedb.helper/?info=user_discover$INFO[Window(Home).Property(TMDbHelper.UserDiscover.Folderpath.ParamString),&amp;,])</onclick>
                     </control>
                 </control>
