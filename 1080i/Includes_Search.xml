@@ -170,8 +170,8 @@
                         <param name="visible">True</param>
                         <param name="detailed">String.IsEqual(ListItem.Label,$LOCALIZE[31046])</param>
 
-                        <param name="altvisible">[[Control.HasFocus(9099) | ControlGroup(9090).HasFocus()] + System.IdleTime(1) + !System.IdleTime(2)]</param>
-                        <param name="busy_isupdating">[[Control.HasFocus(9099) | ControlGroup(9090).HasFocus()] + System.IdleTime(1) + !System.IdleTime(2)]</param>
+                        <param name="altvisible">[[Control.HasFocus(9099) | ControlGroup(9090).HasFocus()] + System.IdleTime(1) + !System.IdleTime(2)] | !String.IsEmpty(Window(Home).Property(UpdateSearchRows))</param>
+                        <param name="busy_isupdating">[[Control.HasFocus(9099) | ControlGroup(9090).HasFocus()] + System.IdleTime(1) + !System.IdleTime(2)] | !String.IsEmpty(Window(Home).Property(UpdateSearchRows))</param>
                         <param name="busy_visible">[Integer.IsEqual(Container(5001).NumItems,0) | Container(5001).IsUpdating]</param>
 
                         <param name="widgetfade_include">true</param>
@@ -291,6 +291,9 @@
             <onright>5000</onright>
             <onleft>noop</onleft>
             <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
+            <!-- Dictation delivers text asynchronously while focus is on another control. -->
+            <ontextchange condition="!Control.HasFocus(9099)">AlarmClock(SetUpdateSearchRows,SetProperty(UpdateSearchRows,True,Home),00:01,silent)</ontextchange>
+            <ontextchange condition="!Control.HasFocus(9099)">AlarmClock(DelUpdateSearchRows,ClearProperty(UpdateSearchRows,Home),00:02,silent)</ontextchange>
         </control>
     </include>
 
@@ -554,7 +557,7 @@
             <onright>5000</onright>
             <onleft>noop</onleft>
             <top>-10</top>
-            <width>240</width>
+            <width>300</width>
             <height>60</height>
             <centerleft>50%</centerleft>
             <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
@@ -616,6 +619,12 @@
                     <onclick>Action(Select)</onclick>
                     <onclick>SetFocus(9994)</onclick>
                     <include>Search_Panel_UpdateSearchRows_Onclick</include>
+                </item>
+
+                <item>
+                    <description>Voice input</description>
+                    <label>&#xf130;</label>
+                    <onclick>Control.Message(9099,voicerecognizer)</onclick>
                 </item>
 
                 <item>
